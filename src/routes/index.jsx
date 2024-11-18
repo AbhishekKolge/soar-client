@@ -5,6 +5,14 @@ import DashboardRoutes from "./dashboard";
 import { StoreProvider } from "../providers";
 import ErrorBoundary from "../modules/error/pages/error-boundary";
 import PrimaryLayout from "../modules/layouts/primary";
+import TransactionRoutes from "./transaction";
+import AccountRoutes from "./account";
+import InvestmentRoutes from "./investment";
+import CreditCardRoutes from "./credit-card";
+import LoanRoutes from "./loan";
+import ServiceRoutes from "./service";
+import PrivilegeRoutes from "./privilege";
+import SettingRoutes from "./setting";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +33,46 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: <PrimaryLayout />,
         children: DashboardRoutes(),
+      },
+      {
+        path: "transaction",
+        element: <PrimaryLayout />,
+        children: TransactionRoutes(),
+      },
+      {
+        path: "account",
+        element: <PrimaryLayout />,
+        children: AccountRoutes(),
+      },
+      {
+        path: "investment",
+        element: <PrimaryLayout />,
+        children: InvestmentRoutes(),
+      },
+      {
+        path: "credit-card",
+        element: <PrimaryLayout />,
+        children: CreditCardRoutes(),
+      },
+      {
+        path: "loan",
+        element: <PrimaryLayout />,
+        children: LoanRoutes(),
+      },
+      {
+        path: "service",
+        element: <PrimaryLayout />,
+        children: ServiceRoutes(),
+      },
+      {
+        path: "privilege",
+        element: <PrimaryLayout />,
+        children: PrivilegeRoutes(),
+      },
+      {
+        path: "setting",
+        element: <PrimaryLayout />,
+        children: SettingRoutes(),
       },
     ],
   },
