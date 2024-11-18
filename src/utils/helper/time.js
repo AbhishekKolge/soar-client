@@ -24,7 +24,7 @@ export const formatLocalTime = (time) => {
   return dayjs(time).tz(localTimeZone).format("DD/MM/YYYY, h:mm A");
 };
 
-export const formatISTDate = (time) => {
+export const formatLocalDate = (time) => {
   return dayjs(time).tz(localTimeZone).format("MM/DD/YYYY");
 };
 
@@ -39,4 +39,10 @@ export const formatDateTimeInput = (time) => {
     "T" +
     date.toTimeString().slice(0, 5)
   );
+};
+
+export const getEighteenYearsAgo = () => {
+  const year = new Date();
+  year.setFullYear(year.getFullYear() - 18);
+  return year;
 };
