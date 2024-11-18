@@ -15,6 +15,23 @@ export const omitNullishKeys = (obj, excludes = []) =>
     return !excludes.includes(key) && !value;
   });
 
+export const updateEmptyToNull = (obj) => {
+  if (_.isArray(obj)) {
+    return obj.map((item) => updateEmptyToNull(item));
+  }
+
+  if (_.isObject(obj) && !_.isArray(obj)) {
+    return _.mapValues(obj, (value) => {
+      if (_.isObject(value) || _.isArray(value)) {
+        return updateEmptyToNull(value);
+      }
+      return value === "" || value === undefined ? null : value;
+    });
+  }
+
+  return obj;
+};
+
 export const pickExactObjKeys = (obj, pickObj) =>
   _.pick(pickObj, Object.keys(obj));
 
