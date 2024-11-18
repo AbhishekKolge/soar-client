@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         children: AuthRoutes(),
       },
       {
-        path: "dashboard",
+        path: "overview",
         element: <PrimaryLayout />,
         children: DashboardRoutes(),
       },
