@@ -53,3 +53,7 @@ export const stringBool = {
   true: true,
   false: false,
 };
+
+export const slugToName = (slug) => {
+  return slug.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+};

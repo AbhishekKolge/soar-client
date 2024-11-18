@@ -10,6 +10,7 @@ import { SIDEBAR_OPTIONS } from "../../utils/constants/defaults";
 import { Link } from "react-router-dom";
 import { Logo } from "../../components/layout";
 import { useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
 const AppSidebar = () => {
   const location = useLocation();
@@ -32,7 +33,12 @@ const AppSidebar = () => {
                       alt={`${item.icon} icon`}
                     />
 
-                    <span className="text-accent-secondary text-lg font-medium">
+                    <span
+                      className={cn(
+                        "text-accent-secondary text-lg font-medium",
+                        isActive && "text-foreground"
+                      )}
+                    >
                       {item.title}
                     </span>
                   </Link>

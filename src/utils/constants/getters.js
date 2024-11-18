@@ -5,7 +5,7 @@ export const ROUTES = {
   forgotPassword: "/auth/forgot-password",
   resetPassword: "/auth/reset-password",
   verify: "/auth/verify",
-  dashboard: "/dashboard",
+  dashboard: "/overview",
   transaction: "/transaction",
   transactionList: "/transaction/list",
   account: "/account",
