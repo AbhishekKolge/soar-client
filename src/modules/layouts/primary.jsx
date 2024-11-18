@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
+import { Header, Sidebar } from "../components";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 
 const PrimaryLayout = () => {
   return (
-    <>
-      <header>
-        <h1>I am layout</h1>
-      </header>
+    <SidebarProvider>
+      <Sidebar />
       <main>
+        <Header>header</Header>
+        <SidebarTrigger className="md:hidden" />
         <Outlet />
       </main>
-    </>
+    </SidebarProvider>
   );
 };
 

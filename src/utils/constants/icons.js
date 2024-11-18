@@ -12,5 +12,44 @@ export const ICON = {
   icons: {
     darkLogo: new URL("../../assets/icons/logo-dark.svg", import.meta.url).href,
     google: new URL("../../assets/icons/google.svg", import.meta.url).href,
+    account: new URL("../../assets/icons/account.svg", import.meta.url).href,
+    creditCard: new URL("../../assets/icons/credit-card.svg", import.meta.url)
+      .href,
+    home: new URL("../../assets/icons/home.svg", import.meta.url).href,
+    investment: new URL("../../assets/icons/investment.svg", import.meta.url)
+      .href,
+    loan: new URL("../../assets/icons/loan.svg", import.meta.url).href,
+    privileges: new URL("../../assets/icons/privileges.svg", import.meta.url)
+      .href,
+    services: new URL("../../assets/icons/services.svg", import.meta.url).href,
+    setting: new URL("../../assets/icons/setting.svg", import.meta.url).href,
+    transaction: new URL("../../assets/icons/transaction.svg", import.meta.url)
+      .href,
+    accountDark: new URL("../../assets/icons/account-dark.svg", import.meta.url)
+      .href,
+    creditCardDark: new URL(
+      "../../assets/icons/credit-card-dark.svg",
+      import.meta.url
+    ).href,
+    homeDark: new URL("../../assets/icons/home-dark.svg", import.meta.url).href,
+    investmentDark: new URL(
+      "../../assets/icons/investment-dark.svg",
+      import.meta.url
+    ).href,
+    loanDark: new URL("../../assets/icons/loan-dark.svg", import.meta.url).href,
+    privilegesDark: new URL(
+      "../../assets/icons/privileges-dark.svg",
+      import.meta.url
+    ).href,
+    servicesDark: new URL(
+      "../../assets/icons/services-dark.svg",
+      import.meta.url
+    ).href,
+    settingDark: new URL("../../assets/icons/setting-dark.svg", import.meta.url)
+      .href,
+    transactionDark: new URL(
+      "../../assets/icons/transaction-dark.svg",
+      import.meta.url
+    ).href,
   },
 };

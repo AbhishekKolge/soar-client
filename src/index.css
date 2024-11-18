@@ -20,6 +20,7 @@
     --muted-tertiary: 216 38% 95%;
     --accent: 231 34% 31%;
     --accent-foreground: 0 0% 100%;
+    --accent-secondary: 0 0% 69%;
     --destructive: 0 100% 65%;
     --destructive-foreground: 44 100% 93%;
     --success: 162 63% 54%;
@@ -37,6 +38,14 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 14%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 @layer base {
