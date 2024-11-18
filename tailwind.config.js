@@ -51,6 +51,9 @@ export default {
           5: "hsl(var(--chart-5))",
         },
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
       },
