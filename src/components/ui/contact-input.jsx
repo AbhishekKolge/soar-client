@@ -38,7 +38,11 @@ export const ContactInput = forwardRef((props, ref) => {
   });
 
   const selectCountryHandler = (countryId) => {
-    codeProps.onSelect(countryId);
+    if (codeProps.value === countryId) {
+      codeProps.onSelect(null);
+    } else {
+      codeProps.onSelect(countryId);
+    }
     setOpen(false);
   };
 
