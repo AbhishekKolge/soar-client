@@ -11,10 +11,12 @@ const PrimaryLayout = () => {
   return (
     <SidebarProvider>
       <Sidebar />
-      <main className="w-full">
+      <main className="w-full bg-secondary">
         <Header>{title}</Header>
         <SidebarTrigger className="md:hidden" />
-        <Outlet />
+        <section className="py-[30px] px-10">
+          <Outlet />
+        </section>
       </main>
     </SidebarProvider>
   );

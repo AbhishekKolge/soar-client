@@ -51,5 +51,15 @@ export const ICON = {
       "../../assets/icons/transaction-dark.svg",
       import.meta.url
     ).href,
+    cog: new URL("../../assets/icons/cog.svg", import.meta.url).href,
+    notificationActive: new URL(
+      "../../assets/icons/notification-active.svg",
+      import.meta.url
+    ).href,
+    notification: new URL(
+      "../../assets/icons/notification.svg",
+      import.meta.url
+    ).href,
+    edit: new URL("../../assets/icons/edit.svg", import.meta.url).href,
   },
 };

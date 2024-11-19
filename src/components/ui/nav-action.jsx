@@ -24,7 +24,7 @@ export const NavAction = (props) => {
             src={auth.profileImageUrl}
             alt={`@${auth.username}`}
           />
-          <AvatarFallback className="uppercase">
+          <AvatarFallback className="uppercase text-background bg-primary text-2xl">
             {getInitials(auth.name)}
           </AvatarFallback>
         </Avatar>

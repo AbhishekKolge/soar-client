@@ -30,7 +30,7 @@ export const DatePicker = (props) => {
           )}
         >
           {value ? (
-            format(new Date(value), "dd/MM/yyyy")
+            format(new Date(value), "dd MMMM yyyy")
           ) : (
             <span>{placeholder}</span>
           )}

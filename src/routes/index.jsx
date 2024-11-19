@@ -13,6 +13,7 @@ import LoanRoutes from "./loan";
 import ServiceRoutes from "./service";
 import PrivilegeRoutes from "./privilege";
 import SettingRoutes from "./setting";
+import { SettingLayout } from "../modules/setting/layouts";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,12 @@ const router = createBrowserRouter([
       {
         path: "setting",
         element: <PrimaryLayout />,
-        children: SettingRoutes(),
+        children: [
+          {
+            element: <SettingLayout />,
+            children: SettingRoutes(),
+          },
+        ],
       },
     ],
   },

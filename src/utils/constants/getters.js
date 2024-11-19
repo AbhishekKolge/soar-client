@@ -18,4 +18,6 @@ export const ROUTES = {
   privilege: "/privilege",
   setting: "/setting",
   profileSetting: "/setting/profile",
+  preferenceSetting: "/setting/preference",
+  securitySetting: "/setting/security",
 };
