@@ -22,7 +22,11 @@ export const PasswordInput = forwardRef((props, ref) => {
         variant="icon"
         onClick={togglePasswordVisibilityHandler}
       >
-        {showPassword ? <EyeClosedIcon /> : <EyeOpenIcon />}
+        {showPassword ? (
+          <EyeClosedIcon color="#8ba2cb" className="!w-5 !h-5" />
+        ) : (
+          <EyeOpenIcon color="#8ba2cb" className="!w-5 !h-5" />
+        )}
       </Button>
     </div>
   );

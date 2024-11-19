@@ -1,6 +1,6 @@
 import apiSlice from "../../state/api/api-slice";
 
-const useApiSlice = apiSlice.injectEndpoints({
+const userApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     showMe: builder.query({
       query: () => ({
@@ -79,4 +79,4 @@ export const {
   useUpdateSecurityMutation,
   useGetPreferenceQuery,
   useUpdatePreferenceMutation,
-} = useApiSlice;
+} = userApiSlice;

@@ -37,7 +37,11 @@ export const CountrySelect = forwardRef((props, ref) => {
   });
 
   const selectCountryHandler = (countryId) => {
-    onSelect(countryId);
+    if (value === countryId) {
+      onSelect(null);
+    } else {
+      onSelect(countryId);
+    }
     setOpen(false);
   };
 
