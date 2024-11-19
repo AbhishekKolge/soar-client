@@ -60,13 +60,13 @@ export const ContactInput = forwardRef((props, ref) => {
             <ChevronDownIcon className="h-4 w-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-auto p-0" align="start">
+        <PopoverContent className="w-40 p-0" align="start">
           <Command
             filter={(value, search) => {
               return countryFilter(value, search, countriesData.countries);
             }}
           >
-            <CommandInput placeholder="Search country..." />
+            <CommandInput placeholder="Search..." />
             <CommandList>
               <CommandEmpty>
                 {countriesIsLoading

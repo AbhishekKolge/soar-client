@@ -81,3 +81,18 @@ export const SIDEBAR_OPTIONS = [
     iconDark: ICON.icons.settingDark,
   },
 ];
+
+export const SETTINGS_TAB_OPTIONS = [
+  {
+    title: "Edit Profile",
+    url: ROUTES.profileSetting,
+  },
+  {
+    title: "Preferences",
+    url: ROUTES.preferenceSetting,
+  },
+  {
+    title: "Security",
+    url: ROUTES.securitySetting,
+  },
+];
