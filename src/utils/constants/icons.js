@@ -8,6 +8,10 @@ export const ICON = {
       .href,
     cover: new URL("../../assets/illustrations/cover.svg", import.meta.url)
       .href,
+    creditCard: new URL(
+      "../../assets/illustrations/credit-card.svg",
+      import.meta.url
+    ).href,
   },
   icons: {
     darkLogo: new URL("../../assets/icons/logo-dark.svg", import.meta.url).href,
@@ -61,5 +65,8 @@ export const ICON = {
       import.meta.url
     ).href,
     edit: new URL("../../assets/icons/edit.svg", import.meta.url).href,
+    chipLight: new URL("../../assets/icons/chip-light.svg", import.meta.url)
+      .href,
+    chipDark: new URL("../../assets/icons/chip-dark.svg", import.meta.url).href,
   },
 };

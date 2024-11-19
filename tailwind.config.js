@@ -77,11 +77,9 @@ export default {
         },
       },
       backgroundImage: {
-        creditCard: {
-          DEFAULT:
-            "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.00) 100%)",
-          dark: "linear-gradient(107deg, #5B5A6F 2.61%, #000 101.2%)",
-        },
+        "dark-gradient": "linear-gradient(107deg, #5B5A6F 2.61%, #000 101.2%)",
+        "dark-gradient-2":
+          "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%)",
       },
       animation: {
         "spin-slow": "spin 3s linear infinite",

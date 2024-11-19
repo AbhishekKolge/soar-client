@@ -12,7 +12,7 @@ const Error404 = () => {
       />
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-medium text-xl capitalize">Page not found</h1>
-        <span className="text-secondary">
+        <span className="text-primary">
           The page you are looking for does not exist
         </span>
       </div>
