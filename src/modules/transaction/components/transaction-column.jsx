@@ -87,7 +87,7 @@ const TransactionColumn = [
       return (
         <div className="flex space-x-1 items-center">
           <span className={cn(isDebited ? "text-destructive" : "text-success")}>
-            {`${isDebited ? "-" : "+"} ${formatCurrency(amount)}`}
+            {`${isDebited ? "-" : "+"}${formatCurrency(amount)}`}
           </span>
         </div>
       );

@@ -21,11 +21,11 @@ export const calculateRemainingTime = (timeArg) => {
 };
 
 export const formatLocalTime = (time) => {
-  return dayjs(time).tz(localTimeZone).format("DD/MM/YYYY, h:mm A");
+  return dayjs(time).tz(localTimeZone).format("D MMMM YYYY, h:mm A");
 };
 
 export const formatLocalDate = (time) => {
-  return dayjs(time).tz(localTimeZone).format("MM/DD/YYYY");
+  return dayjs(time).tz(localTimeZone).format("D MMMM YYYY");
 };
 
 export const formatDateTimeInput = (time) => {
