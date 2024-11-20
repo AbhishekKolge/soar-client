@@ -96,3 +96,33 @@ export const SETTINGS_TAB_OPTIONS = [
     url: ROUTES.securitySetting,
   },
 ];
+
+export const TRANSACTION_METHOD_OPTIONS = [
+  {
+    label: "Debit",
+    value: "DEBIT",
+  },
+  {
+    label: "Credit",
+    value: "CREDIT",
+  },
+];
+
+export const TRANSACTION_CATEGORY_OPTIONS = [
+  {
+    label: "Entertainment",
+    value: "ENTERTAINMENT",
+  },
+  {
+    label: "Investment",
+    value: "INVESTMENT",
+  },
+  {
+    label: "Bill Expense",
+    value: "BILL_EXPENSE",
+  },
+  {
+    label: "Others",
+    value: "OTHERS",
+  },
+];

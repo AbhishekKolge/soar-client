@@ -12,7 +12,7 @@ const initialFilterState = {
   sortType: null,
   search: null,
   category: [],
-  accountId: [],
+  method: [],
 };
 
 const initialHelperState = {
@@ -56,11 +56,25 @@ const queryFilterReducer = (state, action) => {
       category: [],
     };
   }
+  if (action.type === "CLEAR_METHOD") {
+    return {
+      ...state,
+      page: initialFilterState.page,
+      method: [],
+    };
+  }
   if (action.type === "ADD_CATEGORY") {
     return {
       ...state,
       page: initialFilterState.page,
       category: [...state.category, action.value],
+    };
+  }
+  if (action.type === "ADD_METHOD") {
+    return {
+      ...state,
+      page: initialFilterState.page,
+      method: [...state.method, action.value],
     };
   }
   if (action.type === "REMOVE_CATEGORY") {
@@ -71,12 +85,21 @@ const queryFilterReducer = (state, action) => {
       category: updated,
     };
   }
+  if (action.type === "REMOVE_METHOD") {
+    const updated = state.method.filter((id) => id !== action.value);
+    return {
+      ...state,
+      page: initialFilterState.page,
+      method: updated,
+    };
+  }
   if (action.type === "CLEAR_ALL_FILTER") {
     return {
       ...state,
       search: null,
       page: initialFilterState.page,
       category: [],
+      method: [],
     };
   }
   return initialFilterState;
@@ -157,6 +180,9 @@ export const useTransactionFilter = () => {
   const clearCategory = () => {
     dispatchQueryFilter({ type: "CLEAR_CATEGORY" });
   };
+  const clearMethod = () => {
+    dispatchQueryFilter({ type: "CLEAR_METHOD" });
+  };
 
   const addCategory = (value) => {
     if (queryFilterState.category.includes(value)) {
@@ -164,6 +190,13 @@ export const useTransactionFilter = () => {
       return;
     }
     dispatchQueryFilter({ type: "ADD_CATEGORY", value });
+  };
+  const addMethod = (value) => {
+    if (queryFilterState.method.includes(value)) {
+      dispatchQueryFilter({ type: "REMOVE_METHOD", value });
+      return;
+    }
+    dispatchQueryFilter({ type: "ADD_METHOD", value });
   };
 
   const clearAllFilters = () => {
@@ -208,7 +241,9 @@ export const useTransactionFilter = () => {
       sortHandler,
       searchHandler,
       clearCategory,
+      clearMethod,
       addCategory,
+      addMethod,
       clearAllFilters,
     },
   };

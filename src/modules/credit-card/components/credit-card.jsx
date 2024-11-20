@@ -81,7 +81,7 @@ const CreditCard = (props) => {
           >
             Card holder
           </span>
-          <span className="text-[15px] font-semibold">{name}</span>
+          <span className="text-[15px] capitalize font-semibold">{name}</span>
         </div>
         <div className="flex flex-col">
           <span

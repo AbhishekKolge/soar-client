@@ -14,7 +14,6 @@ import {
   useGetPreferenceQuery,
   useUpdatePreferenceMutation,
 } from "../../../features/user/user-api-slice";
-import { useQueryError } from "../../../utils/hooks";
 import { updatePreferenceSchema } from "../../../schema/user";
 import { defaultPreferenceValues, getPreferenceInitialValues } from "../utils";
 import { useEffect } from "react";
@@ -22,13 +21,8 @@ import { successToast } from "../../../utils/helper";
 import { ReloadIcon } from "@radix-ui/react-icons";
 
 const PreferenceForm = () => {
-  const {
-    data: preferenceData,
-    isLoading: preferenceIsLoading,
-    error: preferenceError,
-    isSuccess: preferenceIsSuccess,
-  } = useGetPreferenceQuery();
-  useQueryError(preferenceError, preferenceIsSuccess);
+  const { data: preferenceData, isLoading: preferenceIsLoading } =
+    useGetPreferenceQuery();
   const [updatePreference, { isLoading: updatePreferenceIsLoading }] =
     useUpdatePreferenceMutation();
 

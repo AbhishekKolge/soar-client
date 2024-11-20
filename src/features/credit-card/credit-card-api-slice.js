@@ -14,7 +14,7 @@ const creditCardApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: cardDetails,
       }),
-      invalidatesTags: ["CreditCard"],
+      invalidatesTags: ["CreditCard", "Transaction"],
     }),
     updateCreditCard: builder.mutation({
       query: ({ details, id }) => ({
@@ -22,14 +22,14 @@ const creditCardApiSlice = apiSlice.injectEndpoints({
         method: "PATCH",
         body: details,
       }),
-      invalidatesTags: ["CreditCard"],
+      invalidatesTags: ["CreditCard", "Transaction"],
     }),
     deleteCreditCard: builder.mutation({
       query: (cardId) => ({
         url: `/credit-card/${cardId}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["CreditCard"],
+      invalidatesTags: ["CreditCard", "Transaction"],
     }),
   }),
 });
