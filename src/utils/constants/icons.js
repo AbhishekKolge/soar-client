@@ -12,6 +12,10 @@ export const ICON = {
       "../../assets/illustrations/credit-card.svg",
       import.meta.url
     ).href,
+    construction: new URL(
+      "../../assets/illustrations/construction.svg",
+      import.meta.url
+    ).href,
   },
   icons: {
     darkLogo: new URL("../../assets/icons/logo-dark.svg", import.meta.url).href,
