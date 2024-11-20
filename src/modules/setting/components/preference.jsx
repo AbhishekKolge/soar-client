@@ -73,6 +73,7 @@ const PreferenceForm = () => {
                       disabled={
                         updatePreferenceIsLoading || preferenceIsLoading
                       }
+                      className="!mt-0"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
@@ -99,6 +100,7 @@ const PreferenceForm = () => {
                       disabled={
                         updatePreferenceIsLoading || preferenceIsLoading
                       }
+                      className="!mt-0"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />

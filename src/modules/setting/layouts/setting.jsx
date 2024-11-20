@@ -4,7 +4,7 @@ import { SettingsTab } from "../components";
 
 const SettingLayout = () => {
   return (
-    <Card>
+    <Card className="w-full self-start">
       <CardHeader className="lg:pb-[41px]">
         <SettingsTab />
       </CardHeader>

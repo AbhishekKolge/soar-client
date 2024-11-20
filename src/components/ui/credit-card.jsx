@@ -1,22 +1,22 @@
-import { ICON } from "../../../utils/constants";
+import { ICON } from "../../utils/constants";
 import {
   formatCardValidity,
   formatCurrency,
   maskCreditCardNumber,
-} from "../../../utils/helper";
-import { Card } from "@/components/ui/card";
+} from "../../utils/helper";
+import { Card } from "./card";
 import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "./dropdown-menu";
 import { EllipsisIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 
-const CreditCard = (props) => {
-  const { dark, details, onDelete, onActive, onEdit } = props;
+export const CreditCard = (props) => {
+  const { dark, details, onDelete, onActive, onEdit, disableActions } = props;
   const { isSelected, name, balance, number, validity } = details;
 
   return (
@@ -26,38 +26,40 @@ const CreditCard = (props) => {
         dark
           ? "bg-dark-gradient text-background"
           : "bg-background text-primary",
-        isSelected && "border-success border-4"
+        isSelected && !disableActions && "border-success border-4"
       )}
     >
-      <div className="absolute right-2 top-2">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              className={cn(
-                "p-1 rounded-full !h-auto",
-                dark && "bg-foreground"
-              )}
-              variant="outline"
-            >
-              <EllipsisIcon />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuItem onClick={onActive.bind(null, details)}>
-              Set Active
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={onEdit.bind(null, details)}>
-              Edit
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={onDelete.bind(null, details)}
-              className="text-destructive"
-            >
-              Delete
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
+      {!disableActions && (
+        <div className="absolute right-2 top-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className={cn(
+                  "p-1 rounded-full !h-auto",
+                  dark && "bg-foreground"
+                )}
+                variant="outline"
+              >
+                <EllipsisIcon />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuItem onClick={onActive.bind(null, details)}>
+                Set Active
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={onEdit.bind(null, details)}>
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={onDelete.bind(null, details)}
+                className="text-destructive"
+              >
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      )}
       <div className="flex justify-between items-center px-[26px] pt-[25px]">
         <div className="flex flex-col mb-8">
           <span className={cn("text-xs", !dark && "text-muted")}>Balance</span>
@@ -124,5 +126,3 @@ const CreditCard = (props) => {
     </Card>
   );
 };
-
-export default CreditCard;

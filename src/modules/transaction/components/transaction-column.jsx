@@ -59,8 +59,8 @@ const transactionColumn = [
             className={cn(
               "capitalize text-neutral-950 text-xs font-normal",
               method === "Credit"
-                ? "bg-success-foreground hover:bg-success-foreground"
-                : "bg-destructive-foreground hover:bg-destructive-foreground"
+                ? "bg-success text-background hover:bg-success"
+                : "bg-destructive text-background hover:bg-destructive"
             )}
           >
             {method}
