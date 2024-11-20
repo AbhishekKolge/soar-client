@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const TransactionList = () => {
   return (
-    <Card>
+    <Card className="w-full self-start">
       <CardContent className="pt-[20px] lg:pt-[30px]">
         <TransactionTable />
       </CardContent>

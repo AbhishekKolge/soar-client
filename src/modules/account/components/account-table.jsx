@@ -2,7 +2,7 @@ import {
   useDeleteAccountMutation,
   useGetAccountQuery,
 } from "../../../features/account/account-api-slice";
-import { useAccountFilter } from "../../../utils/hooks";
+import { useAccountFilter, useDisclosure } from "../../../utils/hooks";
 import accountColumn from "./account-column";
 import AccountDataTable from "./account-data-table";
 import {
@@ -19,8 +19,11 @@ import { DeleteConfirmation } from "../../../components/ui/delete-confirmation";
 import UpdateAccount from "./update-account";
 
 const AccountTable = () => {
-  const [openDelete, setOpenDelete] = useState(false);
-  const [openEditAccount, setOpenEditAccount] = useState(false);
+  const { isOpen: openDelete, setOpen: setOpenDelete } =
+    useDisclosure("delete-account");
+  const { isOpen: openEditAccount, setOpen: setOpenEditAccount } =
+    useDisclosure("edit-account");
+
   const [selectedAccount, setSelectedAccount] = useState(null);
   const {
     queryFilterState,

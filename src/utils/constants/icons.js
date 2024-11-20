@@ -16,6 +16,10 @@ export const ICON = {
       "../../assets/illustrations/construction.svg",
       import.meta.url
     ).href,
+    cardPayment: new URL(
+      "../../assets/illustrations/card-payment.svg",
+      import.meta.url
+    ).href,
   },
   icons: {
     darkLogo: new URL("../../assets/icons/logo-dark.svg", import.meta.url).href,
@@ -72,5 +76,8 @@ export const ICON = {
     chipLight: new URL("../../assets/icons/chip-light.svg", import.meta.url)
       .href,
     chipDark: new URL("../../assets/icons/chip-dark.svg", import.meta.url).href,
+    dollar: new URL("../../assets/icons/dollar.svg", import.meta.url).href,
+    paypal: new URL("../../assets/icons/paypal.svg", import.meta.url).href,
+    cards: new URL("../../assets/icons/cards.svg", import.meta.url).href,
   },
 };

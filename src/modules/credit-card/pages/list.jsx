@@ -6,26 +6,25 @@ import {
   useGetCreditCardQuery,
   useUpdateCreditCardMutation,
 } from "../../../features/credit-card/credit-card-api-slice";
-import {
-  AddCard,
-  CardLoading,
-  CreditCard,
-  EmptyCard,
-  UpdateCard,
-} from "../components";
+import { AddCard, CardLoading, EmptyCard, UpdateCard } from "../components";
 import { getColorBasedOnCardNumber, successToast } from "../../../utils/helper";
 import { DeleteConfirmation } from "../../../components/ui/delete-confirmation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { useDisclosure } from "../../../utils/hooks";
+import { CreditCard } from "../../../components/ui/credit-card";
+import { PlaceholderCard } from "../../dashboard/components";
 
 const CreditCardList = () => {
-  const [openDelete, setOpenDelete] = useState(false);
-  const [openAddCard, setOpenAddCard] = useState(false);
-  const [openEditCard, setOpenEditCard] = useState(false);
+  const { isOpen: openDelete, setOpen: setOpenDelete } =
+    useDisclosure("delete-card");
+  const { isOpen: openAddCard, setOpen: setOpenAddCard } =
+    useDisclosure("add-card");
+  const { isOpen: openEditCard, setOpen: setOpenEditCard } =
+    useDisclosure("edit-card");
   const [selectedCard, setSelectedCard] = useState(null);
   const { data: creditCardData, isLoading: creditCardIsLoading } =
     useGetCreditCardQuery({});
-
 
   const [deleteCreditCard, { isLoading: deleteCreditCardIsLoading }] =
     useDeleteCreditCardMutation();
@@ -78,7 +77,7 @@ const CreditCardList = () => {
 
   return (
     <>
-      <Card>
+      <Card className="w-full">
         <CardHeader className="lg:pb-[41px]">
           <div className="flex items-center justify-end">
             <Button onClick={openAddCardHandler} variant="outline">
@@ -96,19 +95,22 @@ const CreditCardList = () => {
           {creditCardIsLoading ? (
             <CardLoading />
           ) : hasCards ? (
-            creditCardData.creditCards.map((card) => {
-              const dark = getColorBasedOnCardNumber(card.id);
-              return (
-                <CreditCard
-                  key={card.id}
-                  details={card}
-                  dark={dark}
-                  onDelete={deleteSelectHandler}
-                  onActive={setActiveHandler}
-                  onEdit={editSelectHandler}
-                />
-              );
-            })
+            <>
+              {creditCardData.creditCards.map((card) => {
+                const dark = getColorBasedOnCardNumber(card.id);
+                return (
+                  <CreditCard
+                    key={card.id}
+                    details={card}
+                    dark={dark}
+                    onDelete={deleteSelectHandler}
+                    onActive={setActiveHandler}
+                    onEdit={editSelectHandler}
+                  />
+                );
+              })}
+              <PlaceholderCard replace />
+            </>
           ) : (
             <EmptyCard />
           )}

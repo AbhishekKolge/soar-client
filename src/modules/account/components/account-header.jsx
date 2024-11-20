@@ -20,7 +20,7 @@ const AccountHeader = (props) => {
     <DropdownMenu key={data.key}>
       <DropdownMenuTrigger asChild>
         <Button
-          className="focus-visible:ring-0 bg-transparent p-0 h-8 lg:h-8 hover:bg-transparent"
+          className="focus-visible:ring-0 bg-transparent p-0 h-8 lg:h-8 hover:bg-transparent !text-base"
           variant="secondary"
         >
           {data.title}

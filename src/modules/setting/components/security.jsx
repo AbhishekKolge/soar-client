@@ -21,10 +21,10 @@ import { successToast } from "../../../utils/helper";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { Label } from "@/components/ui/label";
 import DeleteProfile from "./delete-profile";
-import { useState } from "react";
+import { useDisclosure } from "../../../utils/hooks";
 
 const SecurityForm = () => {
-  const [open, setOpen] = useState(false);
+  const { isOpen: open, setOpen: setOpen } = useDisclosure("delete-profile");
   const { data: securityData, isLoading: securityIsLoading } =
     useGetSecurityQuery();
   const [updateSecurity, { isLoading: updateSecurityIsLoading }] =
@@ -69,14 +69,18 @@ const SecurityForm = () => {
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
                     <div className="space-y-0.5">
-                      <FormLabel className="text-base">Enable 2FA</FormLabel>
+                      <FormLabel className="text-base">
+                        Enable 2FA (we will enable this soon)
+                      </FormLabel>
                       <FormDescription>
                         Add an extra layer of security to your account.
                       </FormDescription>
                     </div>
                     <FormControl>
                       <Switch
-                        disabled={updateSecurityIsLoading || securityIsLoading}
+                        className="!mt-0"
+                        // disabled={updateSecurityIsLoading || securityIsLoading}
+                        disabled={true}
                         checked={field.value}
                         onCheckedChange={field.onChange}
                       />
