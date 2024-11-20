@@ -1,6 +1,6 @@
 import { useGetTransactionQuery } from "../../../features/transaction/transaction-api-slice";
 import { useTransactionFilter } from "../../../utils/hooks";
-import TransactionColumn from "./transaction-column";
+import transactionColumn from "./transaction-column";
 import TransactionDataTable from "./transaction-data-table";
 
 const TransactionTable = () => {
@@ -43,7 +43,7 @@ const TransactionTable = () => {
         totalPages={totalPages}
         currentPage={queryFilterState.page}
         data={data}
-        columns={TransactionColumn}
+        columns={transactionColumn}
         onSort={sortHandler}
         sortKey={queryFilterState.sortKey}
         sortType={queryFilterState.sortType}

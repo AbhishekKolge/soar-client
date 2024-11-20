@@ -37,13 +37,11 @@ export const updateCreditCardSchema = z.object({
     })
     .min(3, {
       message: "Min 3 characters required",
-    })
-    .optional(),
-  isSelected: z.boolean().optional(),
+    }),
+  isSelected: z.boolean(),
   pin: z
     .string()
     .trim()
     .length(6, { message: "Pin must be exactly 6 digits" })
-    .regex(/^\d+$/, { message: "Pin must only contain numbers" })
-    .optional(),
+    .regex(/^\d+$/, { message: "Pin must only contain numbers" }),
 });

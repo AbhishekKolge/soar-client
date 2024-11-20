@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { useDropzone } from "react-dropzone";
 import { X, Loader2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -8,17 +7,12 @@ import {
   ICON,
   MAX_FILE_SIZE,
 } from "../../utils/constants";
-import {
-  errorToast,
-  getInitials,
-  successToast,
-  validateDropzoneSingleFile,
-} from "../../utils/helper";
-import { updateUserInfoHandler } from "../../features/auth/auth-action";
+import { validateDropzoneSingleFile } from "../../utils/helper";
+import { useState } from "react";
 
-const ProfileImage = (props) => {
-  const { showMeData, isLoading, onUpload, onCancel, profileImageId } = props;
-  const dispatch = useDispatch();
+export const AccountImage = (props) => {
+  const { isLoading, onUpload, onCancel, imageUrl } = props;
+  const [imagePreview, setImagePreview] = useState(null);
 
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
@@ -27,21 +21,10 @@ const ProfileImage = (props) => {
     onDrop: (acceptedFiles, rejectedFiles) => {
       validateDropzoneSingleFile(rejectedFiles, MAX_FILE_SIZE);
       if (acceptedFiles[0]) {
-        const formData = new FormData();
-        formData.append("profileImage", acceptedFiles[0]);
-        onUpload(formData)
-          .unwrap()
-          .then((data) => {
-            dispatch(updateUserInfoHandler(data));
-            successToast("Profile image uploaded successfully");
-          })
-          .catch((error) => {
-            if (error.data?.msg) {
-              errorToast(error.data.msg);
-            } else {
-              errorToast("Something went wrong!, please try again");
-            }
-          });
+        const file = acceptedFiles[0];
+        const previewUrl = URL.createObjectURL(file);
+        setImagePreview(previewUrl);
+        onUpload(file);
       }
     },
     disabled: isLoading,
@@ -54,24 +37,16 @@ const ProfileImage = (props) => {
     if (isLoading) {
       return;
     }
-    onCancel(profileImageId)
-      .unwrap()
-      .then(() => {
-        dispatch(updateUserInfoHandler({ profileImageUrl: null }));
-        successToast("Profile image removed successfully");
-      })
-      .catch((error) => {
-        if (error.data?.msg) {
-          errorToast(error.data.msg);
-        } else {
-          errorToast("Something went wrong!, please try again");
-        }
-      });
+    if (imagePreview) {
+      URL.revokeObjectURL(imagePreview);
+      setImagePreview(null);
+    }
+    onCancel();
   };
 
   return (
     <div className="w-[90px] h-[90px] relative" {...getRootProps({})}>
-      {showMeData?.user?.profileImageUrl ? (
+      {imageUrl || imagePreview ? (
         <Button
           type="button"
           onClick={cancelHandler}
@@ -94,14 +69,22 @@ const ProfileImage = (props) => {
       <Avatar className="m-auto w-full h-full">
         <AvatarImage
           className="object-cover"
-          src={!isLoading ? showMeData?.user?.profileImageUrl : ""}
-          alt={`@${showMeData?.user?.username}`}
+          src={
+            !isLoading
+              ? imagePreview
+                ? imagePreview
+                : imageUrl
+                ? imageUrl
+                : ""
+              : ""
+          }
+          alt="account image"
         />
         <AvatarFallback className="text-4xl bg-primary text-background uppercase">
           {isLoading ? (
             <Loader2 color="#fff" className="h-[30px] w-[30px] animate-spin" />
           ) : (
-            getInitials(showMeData?.user?.name || "")
+            <></>
           )}
         </AvatarFallback>
       </Avatar>
@@ -109,5 +92,3 @@ const ProfileImage = (props) => {
     </div>
   );
 };
-
-export default ProfileImage;

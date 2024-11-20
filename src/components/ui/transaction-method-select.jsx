@@ -26,7 +26,7 @@ export const TransactionMethodSelect = (props) => {
             variant="outline"
             className="justify-center border-dashed text-base lg:text-base"
           >
-            Method
+            Type
             {!!selected.length && (
               <>
                 <Separator orientation="vertical" className="mx-2 h-8" />

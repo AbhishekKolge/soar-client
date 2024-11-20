@@ -26,6 +26,7 @@ const CreditCardList = () => {
   const { data: creditCardData, isLoading: creditCardIsLoading } =
     useGetCreditCardQuery({});
 
+
   const [deleteCreditCard, { isLoading: deleteCreditCardIsLoading }] =
     useDeleteCreditCardMutation();
 

@@ -9,7 +9,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { useDeleteAccountMutation } from "../../../features/user/user-api-slice";
 import { useSelector } from "react-redux";
 import { deleteProfileSchema } from "../../../schema/user";
 import { defaultDeleteProfileValues } from "../utils";
@@ -25,14 +24,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { ReloadIcon } from "@radix-ui/react-icons";
+import { useDeleteMeMutation } from "../../../features/user/user-api-slice";
 
 const DeleteProfile = (props) => {
   const { open, setOpen } = props;
 
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
-  const [deleteAccount, { isLoading: deleteAccountIsLoading }] =
-    useDeleteAccountMutation();
+  const [deleteMe, { isLoading: deleteMeIsLoading }] = useDeleteMeMutation();
 
   const form = useForm({
     resolver: zodResolver(deleteProfileSchema),
@@ -44,7 +43,7 @@ const DeleteProfile = (props) => {
       errorToast("Email does not match");
       return;
     }
-    deleteAccount()
+    deleteMe()
       .unwrap()
       .then(() => {
         dispatch(logoutHandler({ isSession: true }));
@@ -84,12 +83,12 @@ const DeleteProfile = (props) => {
               />
             </div>
             <Button
-              disabled={deleteAccountIsLoading}
+              disabled={deleteMeIsLoading}
               variant="destructive"
               type="submit"
               className="w-full"
             >
-              {deleteAccountIsLoading && (
+              {deleteMeIsLoading && (
                 <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
               )}
               Permanently delete account

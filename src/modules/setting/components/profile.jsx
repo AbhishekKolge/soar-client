@@ -66,15 +66,24 @@ const ProfileForm = () => {
   }
 
   const dobHandler = (value) => {
-    form.setValue("dob", value);
+    form.setValue("dob", value, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   };
 
   const contactCountryCodeHandler = (value) => {
-    form.setValue("contactCountryId", value);
+    form.setValue("contactCountryId", value, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   };
 
   const countryHandler = (value) => {
-    form.setValue("countryId", value);
+    form.setValue("countryId", value, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   };
 
   const minDateYear = getEighteenYearsAgo();

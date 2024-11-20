@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-const TransactionColumn = [
+const transactionColumn = [
   {
     accessorKey: "createdAt",
     header: ({ column }) => (
@@ -43,13 +43,7 @@ const TransactionColumn = [
     cell: ({ row }) => {
       const category = row.getValue("category");
 
-      return (
-        <div className="flex space-x-1 items-center">
-          <Badge className="capitalize text-neutral-950 text-xs font-normal bg-muted hover:bg-muted/8 text-background">
-            {category}
-          </Badge>
-        </div>
-      );
+      return <div className="flex space-x-1 items-center">{category}</div>;
     },
   },
   {
@@ -64,7 +58,7 @@ const TransactionColumn = [
           <Badge
             className={cn(
               "capitalize text-neutral-950 text-xs font-normal",
-              method === "Debit"
+              method === "Credit"
                 ? "bg-success-foreground hover:bg-success-foreground"
                 : "bg-destructive-foreground hover:bg-destructive-foreground"
             )}
@@ -119,4 +113,4 @@ const TransactionColumn = [
   },
 ];
 
-export default TransactionColumn;
+export default transactionColumn;
