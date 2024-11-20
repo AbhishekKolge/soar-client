@@ -10,7 +10,7 @@ const SettingsTab = () => {
           <NavLink
             className={({ isActive }) => {
               return cn(
-                "w-[114px] block pb-[11px] px-[15px] relative leading-5 font-medium text-muted text-center",
+                "min-w-[114px] block pb-[11px] px-[15px] relative leading-5 font-medium text-muted text-center",
                 isActive &&
                   "before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-full before:h-[3px] before:bg-sidebar-foreground before:rounded-t-[10px] text-foreground"
               );

@@ -14,7 +14,7 @@ import {
   UpdateCard,
 } from "../components";
 import { useQueryError } from "../../../utils/hooks";
-import { successToast } from "../../../utils/helper";
+import { getColorBasedOnCardNumber, successToast } from "../../../utils/helper";
 import { DeleteConfirmation } from "../../../components/ui/delete-confirmation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -101,13 +101,13 @@ const CreditCardList = () => {
           {creditCardIsLoading ? (
             <CardLoading />
           ) : hasCards ? (
-            creditCardData.creditCards.map((card, index) => {
-              const isEven = index % 2 === 0;
+            creditCardData.creditCards.map((card) => {
+              const dark = getColorBasedOnCardNumber(card.id);
               return (
                 <CreditCard
                   key={card.id}
                   details={card}
-                  dark={isEven}
+                  dark={dark}
                   onDelete={deleteSelectHandler}
                   onActive={setActiveHandler}
                   onEdit={editSelectHandler}

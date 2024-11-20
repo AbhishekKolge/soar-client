@@ -55,9 +55,13 @@ export const verifySchema = z.object({
   email: z.string().trim().email({
     message: "Email is not valid",
   }),
-  code: z.string().trim().min(6, {
-    message: "Code is not valid",
-  }),
+  code: z
+    .string()
+    .trim()
+    .length(6, {
+      message: "Code must be exactly 6 digits",
+    })
+    .regex(/^\d+$/, { message: "Code must only contain numbers" }),
 });
 
 export const forgotPasswordSchema = z.object({
@@ -70,8 +74,12 @@ export const resetPasswordSchema = z.object({
   email: z.string().trim().email({
     message: "Email is not valid",
   }),
-  code: z.string().trim().min(6, {
-    message: "Code is not valid",
-  }),
+  code: z
+    .string()
+    .trim()
+    .length(6, {
+      message: "Code must be exactly 6 digits",
+    })
+    .regex(/^\d+$/, { message: "Code must only contain numbers" }),
   password: zPasswordSchema,
 });
