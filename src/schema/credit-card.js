@@ -24,12 +24,8 @@ export const addCreditCardSchema = z.object({
   pin: z
     .string()
     .trim()
-    .min(6, {
-      message: "Code is not valid",
-    })
-    .max(6, {
-      message: "Code is not valid",
-    }),
+    .length(6, { message: "Pin must be exactly 6 digits" })
+    .regex(/^\d+$/, { message: "Pin must only contain numbers" }),
 });
 
 export const updateCreditCardSchema = z.object({
@@ -47,11 +43,7 @@ export const updateCreditCardSchema = z.object({
   pin: z
     .string()
     .trim()
-    .min(6, {
-      message: "Code is not valid",
-    })
-    .max(6, {
-      message: "Code is not valid",
-    })
+    .length(6, { message: "Pin must be exactly 6 digits" })
+    .regex(/^\d+$/, { message: "Pin must only contain numbers" })
     .optional(),
 });
