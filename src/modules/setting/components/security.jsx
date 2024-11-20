@@ -14,7 +14,6 @@ import {
   useGetSecurityQuery,
   useUpdateSecurityMutation,
 } from "../../../features/user/user-api-slice";
-import { useQueryError } from "../../../utils/hooks";
 import { updateSecuritySchema } from "../../../schema/user";
 import { defaultSecurityValues, getSecurityInitialValues } from "../utils";
 import { useEffect } from "react";
@@ -26,13 +25,8 @@ import { useState } from "react";
 
 const SecurityForm = () => {
   const [open, setOpen] = useState(false);
-  const {
-    data: securityData,
-    isLoading: securityIsLoading,
-    error: securityError,
-    isSuccess: securityIsSuccess,
-  } = useGetSecurityQuery();
-  useQueryError(securityError, securityIsSuccess);
+  const { data: securityData, isLoading: securityIsLoading } =
+    useGetSecurityQuery();
   const [updateSecurity, { isLoading: updateSecurityIsLoading }] =
     useUpdateSecurityMutation();
 

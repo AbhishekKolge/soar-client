@@ -1,6 +1,5 @@
 import { Input } from "@/components/ui/input";
 import { useGetCountriesQuery } from "../../features/utils/utils-api-slice";
-import { useQueryError } from "../../utils/hooks";
 import { Check, ChevronDownIcon } from "lucide-react";
 import {
   Command,
@@ -25,13 +24,8 @@ export const ContactInput = forwardRef((props, ref) => {
   const { codeProps, contactProps, disabled } = props;
   const [open, setOpen] = useState(false);
 
-  const {
-    data: countriesData,
-    isLoading: countriesIsLoading,
-    isSuccess: countriesIsSuccess,
-    error: countriesError,
-  } = useGetCountriesQuery({});
-  useQueryError(countriesError, countriesIsSuccess);
+  const { data: countriesData, isLoading: countriesIsLoading } =
+    useGetCountriesQuery({});
 
   const selectedCountry = countriesData?.countries.find((country) => {
     return country.id === codeProps.value;

@@ -28,7 +28,6 @@ import {
 import { useDispatch } from "react-redux";
 import { updateUserSchema } from "../../../schema/user";
 import { updateUserInfoHandler } from "../../../features/auth/auth-action";
-import { useQueryError } from "../../../utils/hooks";
 import { CountrySelect } from "../../../components/ui/country-select";
 import { useEffect } from "react";
 import { defaultProfileValues, getProfileInitialValues } from "../utils";
@@ -37,13 +36,7 @@ import ProfileLoading from "./profile-loading";
 
 const ProfileForm = () => {
   const dispatch = useDispatch();
-  const {
-    data: showMeData,
-    isLoading: showMeIsLoading,
-    error: showMeError,
-    isSuccess: showMeIsSuccess,
-  } = useShowMeQuery({});
-  useQueryError(showMeError, showMeIsSuccess);
+  const { data: showMeData, isLoading: showMeIsLoading } = useShowMeQuery({});
   const [updateProfile, { isLoading: updateProfileIsLoading }] =
     useUpdateProfileMutation();
   const [removeProfileImage, { isLoading: removeProfileImageIsLoading }] =

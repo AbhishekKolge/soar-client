@@ -13,7 +13,6 @@ import {
   EmptyCard,
   UpdateCard,
 } from "../components";
-import { useQueryError } from "../../../utils/hooks";
 import { getColorBasedOnCardNumber, successToast } from "../../../utils/helper";
 import { DeleteConfirmation } from "../../../components/ui/delete-confirmation";
 import { useState } from "react";
@@ -24,13 +23,8 @@ const CreditCardList = () => {
   const [openAddCard, setOpenAddCard] = useState(false);
   const [openEditCard, setOpenEditCard] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
-  const {
-    data: creditCardData,
-    isLoading: creditCardIsLoading,
-    error: creditCardError,
-    isSuccess: creditCardIsSuccess,
-  } = useGetCreditCardQuery({});
-  useQueryError(creditCardError, creditCardIsSuccess);
+  const { data: creditCardData, isLoading: creditCardIsLoading } =
+    useGetCreditCardQuery({});
 
   const [deleteCreditCard, { isLoading: deleteCreditCardIsLoading }] =
     useDeleteCreditCardMutation();
