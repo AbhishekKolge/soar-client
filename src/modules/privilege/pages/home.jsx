@@ -1,5 +1,7 @@
+import { UnderDevelopment } from "../../components";
+
 const Privilege = () => {
-  return <div>Privilege</div>;
+  return <UnderDevelopment />;
 };
 
 export default Privilege;

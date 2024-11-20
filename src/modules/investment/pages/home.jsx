@@ -1,5 +1,7 @@
+import { UnderDevelopment } from "../../components";
+
 const Investment = () => {
-  return <div>Investment</div>;
+  return <UnderDevelopment />;
 };
 
 export default Investment;

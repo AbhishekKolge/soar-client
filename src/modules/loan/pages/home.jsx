@@ -1,5 +1,7 @@
+import { UnderDevelopment } from "../../components";
+
 const Loan = () => {
-  return <div>Loan</div>;
+  return <UnderDevelopment />;
 };
 
 export default Loan;

@@ -1,5 +1,7 @@
+import { UnderDevelopment } from "../../components";
+
 const Service = () => {
-  return <div>Service</div>;
+  return <UnderDevelopment />;
 };
 
 export default Service;
