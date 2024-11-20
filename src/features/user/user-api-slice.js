@@ -32,7 +32,7 @@ const userApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
-    deleteAccount: builder.mutation({
+    deleteMe: builder.mutation({
       query: () => ({
         url: "/user",
         method: "DELETE",
@@ -74,7 +74,7 @@ export const {
   useUploadProfileImageMutation,
   useUpdateProfileMutation,
   useRemoveProfileImageMutation,
-  useDeleteAccountMutation,
+  useDeleteMeMutation,
   useGetSecurityQuery,
   useUpdateSecurityMutation,
   useGetPreferenceQuery,

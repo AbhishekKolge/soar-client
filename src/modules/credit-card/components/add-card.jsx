@@ -59,7 +59,10 @@ const AddCard = (props) => {
   }
 
   const validityHandler = (value) => {
-    form.setValue("validity", value || undefined);
+    form.setValue("validity", value || undefined, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
   };
 
   const toggleSheetHandler = (value) => {

@@ -11,8 +11,7 @@ const initialFilterState = {
   nullishSort: false,
   sortType: null,
   search: null,
-  category: [],
-  method: [],
+  bankId: [],
 };
 
 const initialHelperState = {
@@ -49,57 +48,37 @@ const queryFilterReducer = (state, action) => {
       search: action.search,
     };
   }
-  if (action.type === "CLEAR_CATEGORY") {
+  if (action.type === "CLEAR_BANK") {
     return {
       ...state,
       page: initialFilterState.page,
-      category: [],
+      bankId: [],
     };
   }
-  if (action.type === "CLEAR_METHOD") {
+
+  if (action.type === "ADD_BANK") {
     return {
       ...state,
       page: initialFilterState.page,
-      method: [],
+      bankId: [...state.bankId, action.value],
     };
   }
-  if (action.type === "ADD_CATEGORY") {
+
+  if (action.type === "REMOVE_BANK") {
+    const updated = state.bankId.filter((id) => id !== action.value);
     return {
       ...state,
       page: initialFilterState.page,
-      category: [...state.category, action.value],
+      bankId: updated,
     };
   }
-  if (action.type === "ADD_METHOD") {
-    return {
-      ...state,
-      page: initialFilterState.page,
-      method: [...state.method, action.value],
-    };
-  }
-  if (action.type === "REMOVE_CATEGORY") {
-    const updated = state.category.filter((id) => id !== action.value);
-    return {
-      ...state,
-      page: initialFilterState.page,
-      category: updated,
-    };
-  }
-  if (action.type === "REMOVE_METHOD") {
-    const updated = state.method.filter((id) => id !== action.value);
-    return {
-      ...state,
-      page: initialFilterState.page,
-      method: updated,
-    };
-  }
+
   if (action.type === "CLEAR_ALL_FILTER") {
     return {
       ...state,
       search: null,
       page: initialFilterState.page,
-      category: [],
-      method: [],
+      bankId: [],
     };
   }
   return initialFilterState;
@@ -121,7 +100,7 @@ const helperReducer = (state, action) => {
   return initialHelperState;
 };
 
-export const useTransactionFilter = () => {
+export const useAccountFilter = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -178,26 +157,16 @@ export const useTransactionFilter = () => {
     debouncedHandleSearch(search);
   };
 
-  const clearCategory = () => {
-    dispatchQueryFilter({ type: "CLEAR_CATEGORY" });
-  };
-  const clearMethod = () => {
-    dispatchQueryFilter({ type: "CLEAR_METHOD" });
+  const clearBank = () => {
+    dispatchQueryFilter({ type: "CLEAR_BANK" });
   };
 
-  const addCategory = (value) => {
-    if (queryFilterState.category.includes(value)) {
-      dispatchQueryFilter({ type: "REMOVE_CATEGORY", value });
+  const addBank = (value) => {
+    if (queryFilterState.bankId.includes(value)) {
+      dispatchQueryFilter({ type: "REMOVE_BANK", value });
       return;
     }
-    dispatchQueryFilter({ type: "ADD_CATEGORY", value });
-  };
-  const addMethod = (value) => {
-    if (queryFilterState.method.includes(value)) {
-      dispatchQueryFilter({ type: "REMOVE_METHOD", value });
-      return;
-    }
-    dispatchQueryFilter({ type: "ADD_METHOD", value });
+    dispatchQueryFilter({ type: "ADD_BANK", value });
   };
 
   const clearAllFilters = () => {
@@ -241,10 +210,8 @@ export const useTransactionFilter = () => {
       prevPageHandler,
       sortHandler,
       searchHandler,
-      clearCategory,
-      clearMethod,
-      addCategory,
-      addMethod,
+      clearBank,
+      addBank,
       clearAllFilters,
     },
   };
