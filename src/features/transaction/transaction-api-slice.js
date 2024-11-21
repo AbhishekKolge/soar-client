@@ -16,7 +16,14 @@ const transactionApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: details,
       }),
-      invalidatesTags: ["Transaction", "CreditCard"],
+      invalidatesTags: [
+        "Transaction",
+        "CreditCard",
+        "Analytics",
+        "Activity",
+        "Expense",
+        "Balance",
+      ],
     }),
   }),
 });

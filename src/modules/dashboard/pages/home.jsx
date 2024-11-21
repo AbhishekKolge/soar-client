@@ -8,9 +8,9 @@ import {
   RecentTransaction,
   WidgetContainer,
 } from "../components";
-import { Skeleton } from "@/components/ui/skeleton";
 import { CreditCard } from "../../../components/ui/credit-card";
 import { getColorBasedOnCardNumber } from "../../../utils/helper";
+import { BalanceHistory, ExpenseStatistics, WeeklyActivity } from "../charts";
 
 const Dashboard = () => {
   const { data: creditCardData, isLoading: creditCardIsLoading } =
@@ -55,12 +55,14 @@ const Dashboard = () => {
         </WidgetContainer>
       </div>
       <div className="col-span-8 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="min-h-[322px]" />
+        <WidgetContainer title="Weekly Activity">
+          <WeeklyActivity />
+        </WidgetContainer>
       </div>
       <div className="col-span-4 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="min-h-[322px]" />
+        <WidgetContainer title="Expense Statistics">
+          <ExpenseStatistics />
+        </WidgetContainer>
       </div>
       <div className="col-span-5">
         <WidgetContainer title="Quick Transfer">
@@ -68,8 +70,9 @@ const Dashboard = () => {
         </WidgetContainer>
       </div>
       <div className="col-span-7 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="min-h-[276px]" />
+        <WidgetContainer title="Balance History">
+          <BalanceHistory />
+        </WidgetContainer>
       </div>
     </div>
   );

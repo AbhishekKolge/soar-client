@@ -6,3 +6,4 @@ export * from "./text";
 export * from "./time";
 export * from "./filter";
 export * from "./color";
+export * from "./chart";

@@ -108,21 +108,37 @@ export const TRANSACTION_METHOD_OPTIONS = [
   },
 ];
 
+const TRANSACTION_CATEGORY = {
+  entertainment: "ENTERTAINMENT",
+  investment: "INVESTMENT",
+  billExpense: "BILL_EXPENSE",
+  others: "OTHERS",
+};
+
 export const TRANSACTION_CATEGORY_OPTIONS = [
   {
     label: "Entertainment",
-    value: "ENTERTAINMENT",
+    value: TRANSACTION_CATEGORY.entertainment,
   },
   {
     label: "Investment",
-    value: "INVESTMENT",
+    value: TRANSACTION_CATEGORY.investment,
   },
   {
     label: "Bill Expense",
-    value: "BILL_EXPENSE",
+    value: TRANSACTION_CATEGORY.billExpense,
   },
   {
     label: "Others",
-    value: "OTHERS",
+    value: TRANSACTION_CATEGORY.others,
   },
 ];
+
+export const TRANSACTION_CATEGORY_FORMAT = {
+  [TRANSACTION_CATEGORY.entertainment]: "Entertainment",
+  [TRANSACTION_CATEGORY.investment]: "Investment",
+  [TRANSACTION_CATEGORY.billExpense]: "Bill Expense",
+  [TRANSACTION_CATEGORY.others]: "Others",
+};
+
+export const RADIAN = Math.PI / 180;

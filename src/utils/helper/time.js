@@ -56,3 +56,12 @@ export const formatCardValidity = (time) => {
   const formattedDate = `${month}/${day}`;
   return formattedDate;
 };
+
+
+export const getShortDay = (time) => {
+  return dayjs(time).format("ddd");
+};
+
+export const getShortMonth = (time) => {
+  return dayjs(time).format("MMM");
+};
