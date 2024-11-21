@@ -1,4 +1,4 @@
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import { CartesianGrid, XAxis, YAxis, Area, AreaChart } from "recharts";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   ChartContainer,
@@ -30,7 +30,7 @@ const BalanceHistory = () => {
       <CardContent className="py-[30px] lg:py-[30px] px-[25px] lg:px-[25px] aspect-[2.3/1] flex">
         {balanceData?.balance?.length ? (
           <ChartContainer className="w-full h-full" config={chartConfig}>
-            <LineChart
+            <AreaChart
               accessibilityLayer
               data={balanceData.balance}
               margin={{
@@ -72,14 +72,22 @@ const BalanceHistory = () => {
                 cursor={false}
                 content={<ChartTooltipContent hideLabel />}
               />
-              <Line
+              <defs>
+                <linearGradient id="fillBalance" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#2D60FF" stopOpacity={0.6} />
+                  <stop offset="50%" stopColor="#2D60FF" stopOpacity={0.1} />
+                </linearGradient>
+              </defs>
+              <Area
                 dataKey="balance"
                 type="natural"
+                fill="url(#fillBalance)"
+                fillOpacity={0.4}
                 stroke="var(--color-balance)"
                 strokeWidth={3}
                 dot={false}
               />
-            </LineChart>
+            </AreaChart>
           </ChartContainer>
         ) : (
           <EmptyChart />
