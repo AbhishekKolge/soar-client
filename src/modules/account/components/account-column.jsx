@@ -11,7 +11,7 @@ const accountColumn = [
       const name = row.getValue("name");
       return (
         <div className="flex items-center gap-4">
-          <Avatar className="h-[40px] w-[40px] cursor-pointer">
+          <Avatar className="h-[40px] w-[40px]">
             <AvatarImage
               className="object-cover"
               src={imageUrl}
@@ -31,7 +31,9 @@ const accountColumn = [
     header: ({ column }) => <AccountHeader column={column} title="Identity" />,
     cell: ({ row }) => {
       const identity = row.getValue("identity");
-      return <div className="flex space-x-1 items-center">{identity}</div>;
+      return (
+        <div className="flex space-x-1 items-center">{identity || "-"}</div>
+      );
     },
   },
   {

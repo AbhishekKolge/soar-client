@@ -22,7 +22,7 @@ export const CreditCard = (props) => {
   return (
     <Card
       className={cn(
-        "overflow-hidden relative",
+        "overflow-hidden relative transition-all ease-in-out duration-200 aspect-[3/2] grid gap-[33px] grid-rows-[1fr_1fr_auto]",
         dark
           ? "bg-dark-gradient text-background"
           : "bg-background text-primary",
@@ -61,7 +61,7 @@ export const CreditCard = (props) => {
         </div>
       )}
       <div className="flex justify-between items-center px-[26px] pt-[25px]">
-        <div className="flex flex-col mb-8">
+        <div className="flex flex-col">
           <span className={cn("text-xs", !dark && "text-muted")}>Balance</span>
           <span className="text-xl font-semibold">
             {formatCurrency(balance.amount)}
@@ -73,7 +73,7 @@ export const CreditCard = (props) => {
           className="w-[34.77px] h-[34.77px]"
         />
       </div>
-      <div className="grid grid-cols-2 mb-8 px-[26px]">
+      <div className="grid grid-cols-2 px-[26px] items-center">
         <div className="flex flex-col">
           <span
             className={cn(

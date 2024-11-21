@@ -4,6 +4,7 @@ import {
   EmptyCard,
   Loading,
   PlaceholderCard,
+  QuickTransfer,
   RecentTransaction,
   WidgetContainer,
 } from "../components";
@@ -62,8 +63,9 @@ const Dashboard = () => {
         <Skeleton className="min-h-[322px]" />
       </div>
       <div className="col-span-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="min-h-[276px]" />
+        <WidgetContainer title="Quick Transfer">
+          <QuickTransfer />
+        </WidgetContainer>
       </div>
       <div className="col-span-7 grid gap-y-5">
         <Skeleton className="h-7 w-28" />

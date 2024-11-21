@@ -6,7 +6,7 @@ import { PlusCircledIcon } from "@radix-ui/react-icons";
 const PlaceholderCard = (props) => {
   const { replace } = props;
   return (
-    <Card className="border-dashed border-2 border-muted">
+    <Card className="border-dashed border-2 border-muted aspect-[3/2]">
       <Link
         className="w-full h-full grid place-content-center"
         to={{
