@@ -95,7 +95,7 @@ const transactionColumn = [
     cell: ({ row }) => {
       const note = row.getValue("note");
 
-      return (
+      return note ? (
         <Tooltip>
           <TooltipTrigger asChild>
             <div className="flex space-x-1 text-ellipsis overflow-hidden items-center">
@@ -108,6 +108,8 @@ const transactionColumn = [
             <p className="max-w-[250px]">{note}</p>
           </TooltipContent>
         </Tooltip>
+      ) : (
+        <div className="flex space-x-1 items-center">-</div>
       );
     },
   },

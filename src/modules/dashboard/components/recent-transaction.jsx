@@ -17,7 +17,7 @@ const RecentTransaction = () => {
 
   return (
     <Card>
-      <CardContent className="p-[20px] lg:p-[25px] max-h-[235px] flex">
+      <CardContent className="p-[20px] lg:p-[25px] aspect-[3/2] flex">
         <div className="overflow-scroll flex flex-col gap-2.5 flex-1">
           {transactions?.map((transaction) => {
             const getIcon = () => {

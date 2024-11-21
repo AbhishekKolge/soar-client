@@ -79,5 +79,6 @@ export const ICON = {
     dollar: new URL("../../assets/icons/dollar.svg", import.meta.url).href,
     paypal: new URL("../../assets/icons/paypal.svg", import.meta.url).href,
     cards: new URL("../../assets/icons/cards.svg", import.meta.url).href,
+    plane: new URL("../../assets/icons/plane.svg", import.meta.url).href,
   },
 };
