@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { logoutHandler } from "../../features/auth/auth-action";
 import Notification from "./notification";
 import Settings from "./settings";
+import Search from "./search";
 
 const Header = (props) => {
   const { children } = props;
@@ -20,6 +21,7 @@ const Header = (props) => {
         {children}
       </h2>
       <div className="flex items-center gap-[30px]">
+        <Search />
         <Settings />
         <Notification />
         <NavAction auth={auth} onLogout={logoutAccountHandler} />
