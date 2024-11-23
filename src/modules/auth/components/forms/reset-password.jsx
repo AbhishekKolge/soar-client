@@ -156,7 +156,7 @@ const ResetPasswordForm = () => {
             </Button>
           </CardFooter>
           <Separator className="mb-2" />
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col items-center gap-2 text-[14px] md:text-[16px]">
             <Button asChild variant="link" className="">
               <Link to={ROUTES.forgotPassword}>{`Don't have code?`}</Link>
             </Button>

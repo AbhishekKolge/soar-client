@@ -88,6 +88,20 @@ const transactionColumn = [
     },
   },
   {
+    accessorKey: "balance",
+    header: ({ column }) => (
+      <TransactionColumnHeader column={column} title="Balance" />
+    ),
+    cell: ({ row }) => {
+      const balance = row.getValue("balance");
+      return (
+        <div className="flex space-x-1 items-center">
+          {formatCurrency(balance)}
+        </div>
+      );
+    },
+  },
+  {
     accessorKey: "note",
     header: ({ column }) => (
       <TransactionColumnHeader column={column} title="Note" />

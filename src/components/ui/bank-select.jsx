@@ -87,7 +87,7 @@ export const BankSelect = forwardRef((props, ref) => {
           aria-expanded={open}
           className={cn(
             "w-full justify-between text-xs lg:text-[15px]",
-            !bank.id ? "text-muted-foreground" : "text-muted"
+            !bank.id ? "text-muted-foreground" : "text-primary"
           )}
         >
           {bank.id ? bank.name : "Select Bank"}

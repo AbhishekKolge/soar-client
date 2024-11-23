@@ -8,7 +8,7 @@ import {
 import { useGetBalanceHistoryQuery } from "../../../features/analytics/analytics-api-slice";
 import { Skeleton } from "@/components/ui/skeleton";
 import EmptyChart from "./empty-chart";
-import { getShortMonth } from "../../../utils/helper";
+import { formatNumberToShorthand, getShortMonth } from "../../../utils/helper";
 
 const chartConfig = {
   balance: {
@@ -21,21 +21,19 @@ const BalanceHistory = () => {
   const { data: balanceData, isLoading: balanceIsLoading } =
     useGetBalanceHistoryQuery({});
 
-  if (balanceIsLoading) {
-    return <Skeleton className="rounded-[15px] aspect-[2.3/1]" />;
-  }
-
   return (
-    <Card>
-      <CardContent className="py-[30px] lg:py-[30px] px-[25px] lg:px-[25px] aspect-[2.3/1] flex">
-        {balanceData?.balance?.length ? (
+    <Card className="border-0">
+      <CardContent className="px-[18px] lg:px-[25px] pb-[19px] lg:pb-[30px] pt-[4px] lg:pt-[30px] aspect-[325/223] lg:aspect-[635/276]">
+        {balanceIsLoading ? (
+          <Skeleton className="rounded-[15px] lg:rounded-[25px] h-full w-full" />
+        ) : balanceData?.balance?.length ? (
           <ChartContainer className="w-full h-full" config={chartConfig}>
             <AreaChart
               accessibilityLayer
               data={balanceData.balance}
               margin={{
-                left: 12,
-                right: 12,
+                left: -12,
+                right: -12,
               }}
             >
               <CartesianGrid stroke="#DFE5EE" strokeDasharray="3 3" />
@@ -49,10 +47,9 @@ const BalanceHistory = () => {
                   fill: "#718EBF",
                   fontSize: 14,
                 }}
-                axisLine={false}
                 tickMargin={10}
+                axisLine={false}
                 tickFormatter={getShortMonth}
-                interval={1}
               />
               <YAxis
                 tickLine={{
@@ -67,6 +64,7 @@ const BalanceHistory = () => {
                 tickMargin={10}
                 interval="balance"
                 tickCount={5}
+                tickFormatter={formatNumberToShorthand}
               />
               <ChartTooltip
                 cursor={false}
@@ -74,7 +72,8 @@ const BalanceHistory = () => {
               />
               <defs>
                 <linearGradient id="fillBalance" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#2D60FF" stopOpacity={0.6} />
+                  <stop offset="20%" stopColor="#2D60FF" stopOpacity={0.8} />
+                  <stop offset="100%" stopColor="#FFF" stopOpacity={1} />
                   <stop offset="50%" stopColor="#2D60FF" stopOpacity={0.1} />
                 </linearGradient>
               </defs>
@@ -90,7 +89,7 @@ const BalanceHistory = () => {
             </AreaChart>
           </ChartContainer>
         ) : (
-          <EmptyChart />
+          <EmptyChart message="No balance history found" />
         )}
       </CardContent>
     </Card>

@@ -42,7 +42,7 @@ const TransactionTableToolbar = ({
             <Button
               variant="secondary"
               onClick={clearAllFilters}
-              className="h-8 px-2 lg:px-3 text-base lg:text-base"
+              className="h-[40px] lg:h-[50px] px-2 lg:px-3 text-[14px] lg:text-base"
             >
               Reset
               <Cross2Icon className="ml-2 h-4 w-4" />

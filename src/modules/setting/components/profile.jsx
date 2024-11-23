@@ -91,7 +91,7 @@ const ProfileForm = () => {
   const contactCountryCodeError = form.formState.errors.contactCountryId;
 
   return (
-    <div className="flex gap-[57px] items-start pl-[30px]">
+    <div className="flex flex-col md:flex-row gap-[22px] md:gap-[57px] items-center md:items-start md:pl-[30px] pt-[22px] md:pt-0">
       <ProfileImage
         isLoading={
           showMeIsLoading ||
@@ -106,9 +106,9 @@ const ProfileForm = () => {
 
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-[41px] flex-1"
+        className="flex flex-col gap-[16px] md:gap-[41px] flex-1 w-full"
       >
-        <div className="grid grid-cols-2 gap-x-[29px] gap-y-[22px]">
+        <div className="grid xl:grid-cols-2 gap-x-[29px] gap-y-[16px] md:gap-y-[22px]">
           {showMeIsLoading ? (
             <ProfileLoading />
           ) : (

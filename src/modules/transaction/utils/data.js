@@ -68,6 +68,10 @@ export const transactionHeaders = [
     ],
   },
   {
+    title: "Balance",
+    key: "balance",
+  },
+  {
     title: "Note",
     key: "note",
   },

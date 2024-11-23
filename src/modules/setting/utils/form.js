@@ -2,6 +2,7 @@ export const getProfileInitialValues = (user) => {
   return {
     name: user.name || "",
     username: user.username || "",
+    email: user.email || "",
     dob: user.dob || null,
     contactNumber: user.contactNumber || "",
     contactCountryId: user.contactCountryId || "",
@@ -28,6 +29,7 @@ export const getSecurityInitialValues = (security) => {
 export const defaultProfileValues = {
   name: "",
   username: "",
+  email: "",
   dob: null,
   contactNumber: "",
   contactCountryId: "",

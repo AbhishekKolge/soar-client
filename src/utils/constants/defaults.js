@@ -23,7 +23,11 @@ export const DEFAULT_PAGE = 1;
 
 export const AUTH_STORAGE_NAME = "auth";
 
-export const MOBILE_BREAKPOINT = 768;
+export const MOBILE_BREAKPOINT = 640;
+
+export const TABLET_BREAKPOINT = 768;
+
+export const DESKTOP_BREAKPOINT = 1024;
 
 export const SIDEBAR_OPTIONS = [
   {
