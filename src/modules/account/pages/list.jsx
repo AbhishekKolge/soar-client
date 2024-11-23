@@ -17,14 +17,17 @@ const AccountList = () => {
     <>
       <Card className="w-full self-start">
         <CardHeader className="lg:pb-[41px]">
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end sm:justify-between">
+            <h3 className="text-primary text-[16px] lg:text-[22px] font-semibold hidden sm:block">
+              Manage your payee accounts
+            </h3>
             <Button onClick={openAddAccountHandler} variant="outline">
               <PlusCircledIcon className="!h-5 !w-5" />
               Add account
             </Button>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="grid">
           <AccountTable />
         </CardContent>
       </Card>

@@ -50,7 +50,7 @@ export const CountrySelect = forwardRef((props, ref) => {
           aria-expanded={open}
           className={cn(
             "w-full justify-between text-xs lg:text-[15px]",
-            !value ? "text-muted-foreground" : "text-muted"
+            !value ? "text-muted-foreground" : "text-primary"
           )}
         >
           {selectedCountry ? selectedCountry.name : "Select Country"}

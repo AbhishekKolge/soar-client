@@ -149,11 +149,11 @@ const LoginForm = () => {
             </Button>
           </CardFooter>
           <Separator className="mb-2" />
-          <div className="flex flex-col items-center gap-2">
+          <div className="flex flex-col text-[14px] md:text-[16px] items-center gap-2">
             <Button asChild variant="link">
               <Link to={ROUTES.forgotPassword}>Forgot Password</Link>
             </Button>
-            <p className="text-sm text-center w-full md:w-[350px]">
+            <p className="text-xs md:text-sm text-center w-full md:w-[350px]">
               By clicking continue, you agree to our Terms of Service and
               Privacy Policy.
             </p>

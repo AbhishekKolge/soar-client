@@ -6,7 +6,7 @@ const Notification = () => {
   return (
     <Button
       variant="secondary"
-      className="w-[50px] h-[50px] p-0 rounded-full lg:rounded-full"
+      className="hidden w-[50px] h-[50px] lg:rounded-full lg:p-[12px] lg:block"
       asChild
     >
       <Link to={ROUTES.preferenceSetting}>

@@ -10,17 +10,16 @@ const RecentTransaction = () => {
   const { data: transactionData, isLoading: transactionIsLoading } =
     useGetTransactionQuery({});
 
-  if (transactionIsLoading) {
-    return <Skeleton className="rounded-[15px] aspect-[3/2]" />;
-  }
 
   const transactions = transactionData?.results;
 
   return (
-    <Card>
-      <CardContent className="p-[20px] lg:p-[25px] aspect-[3/2] flex">
-        {transactions?.length ? (
-          <div className="overflow-scroll flex flex-col gap-2.5 flex-1">
+    <Card className="border-0">
+      <CardContent className="py-[20px] px-[18px] lg:p-[25px] aspect-[325/214] lg:aspect-[350/235]">
+        {transactionIsLoading ? (
+          <Skeleton className="w-full h-full rounded-[15px] lg:rounded-[25px]" />
+        ) : transactions?.length ? (
+          <div className="overflow-y-scroll h-full flex flex-col gap-[12px] lg:gap-[10px]">
             {transactions.map((transaction) => {
               const getIcon = () => {
                 if (transaction.method === "Debit") {
@@ -36,18 +35,24 @@ const RecentTransaction = () => {
               return (
                 <div
                   key={transaction.id}
-                  className="flex items-center gap-[17px]"
+                  className="flex items-center gap-[15px] lg:gap-[17px]"
                 >
-                  <img src={getIcon()} alt="test" />
-                  <div className="flex flex-col gap-[7px] leading-4">
-                    <span className="font-medium">{transaction.recipient}</span>
-                    <span className="text-muted text-[15px]">
+                  <img
+                    src={getIcon()}
+                    className="w-[50px] h-[50px] lg:w-[55px] lg:h-[55px]"
+                    alt="test"
+                  />
+                  <div className="flex flex-col gap-[4px] lg:gap-[7px] leading-4 lg:leading-none">
+                    <span className="font-medium text-[14px] lg:text-[16px]">
+                      {transaction.recipient}
+                    </span>
+                    <span className="text-muted text-[12px] lg:text-[15px]">
                       {formatLocalDate(transaction.createdAt)}
                     </span>
                   </div>
                   <span
                     className={cn(
-                      "ml-auto font-medium",
+                      "ml-auto text-[11px] lg:text-[16px] text-right font-medium",
                       isDebited ? "text-destructive" : "text-success"
                     )}
                   >
@@ -60,7 +65,7 @@ const RecentTransaction = () => {
             })}
           </div>
         ) : (
-          <EmptyChart />
+          <EmptyChart message="No transactions found" />
         )}
       </CardContent>
     </Card>

@@ -29,3 +29,13 @@ export const maskCreditCardNumber = (cardNumber) => {
     8
   )} ${lastFour}`;
 };
+
+export const formatNumberToShorthand = (num) => {
+  if (num < 10000) {
+    return num;
+  }
+  return new Intl.NumberFormat("en", {
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(num);
+};

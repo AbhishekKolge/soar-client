@@ -12,6 +12,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { getShortDay } from "../../../utils/helper";
 import _ from "lodash";
 import EmptyChart from "./empty-chart";
+import { useState } from "react";
+import { useBreakpoint } from "../../../utils/hooks";
+import { useEffect } from "react";
 
 const chartConfig = {
   debit: {
@@ -25,12 +28,22 @@ const chartConfig = {
 };
 
 const WeeklyActivity = () => {
+  const [barSize, setBarSize] = useState(18);
+  const [barGap, setBarGap] = useState(18);
+  const { isMobile } = useBreakpoint();
+
+  useEffect(() => {
+    if (isMobile) {
+      setBarSize(7);
+      setBarGap(4);
+    } else {
+      setBarSize(18);
+      setBarGap(18);
+    }
+  }, [isMobile]);
+
   const { data: activityData, isLoading: activityIsLoading } =
     useGetWeeklyActivityQuery({});
-
-  if (activityIsLoading) {
-    return <Skeleton className="rounded-[15px] aspect-[2.27/1]" />;
-  }
 
   const max = activityData?.activity?.length
     ? _.max([
@@ -46,31 +59,39 @@ const WeeklyActivity = () => {
     : 0;
 
   return (
-    <Card>
-      <CardContent className="py-7 lg:py-7 px-[33px] lg:px-[33px] aspect-[2.27/1] flex">
-        {activityData?.activity?.length ? (
-          <ChartContainer className="w-full h-full" config={chartConfig}>
+    <Card className="border-0">
+      <CardContent className="px-[20px] lg:px-[30px] pt-[9px] lg:pt-[30px] pb-[17px] lg:pb-[28px] sm:aspect-auto lg:aspect-[730/322]">
+        {activityIsLoading ? (
+          <Skeleton className="rounded-[15px] lg:rounded-[25px] w-full h-[254px] lg:h-full" />
+        ) : activityData?.activity?.length ? (
+          <ChartContainer
+            className="w-full max-h-[254px] lg:max-h-none lg:w-full lg:h-full"
+            config={chartConfig}
+          >
             <BarChart
-              barSize={18}
-              barGap={18}
+              barSize={barSize}
+              barGap={barGap}
               accessibilityLayer
               data={activityData.activity}
+              margin={{
+                left: -20,
+              }}
             >
               <CartesianGrid vertical={false} />
               <XAxis
                 dataKey="day"
                 tickLine={false}
-                tickMargin={17}
+                tickMargin={10}
                 axisLine={false}
                 tickFormatter={getShortDay}
               />
               <YAxis
                 tickLine={false}
                 axisLine={false}
-                tickMargin={17}
                 domain={[min, max]}
                 interval="preserveStartEnd"
                 tickCount={7}
+                tickFormatter={(value) => value.toFixed(0)}
               />
               <ChartTooltip
                 cursor={false}
@@ -88,7 +109,7 @@ const WeeklyActivity = () => {
             </BarChart>
           </ChartContainer>
         ) : (
-          <EmptyChart />
+          <EmptyChart message="No weekly activity found" />
         )}
       </CardContent>
     </Card>

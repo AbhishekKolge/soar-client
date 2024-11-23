@@ -1,36 +1,19 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Loader } from "lucide-react";
 
 const Loading = () => {
   return (
-    <div className="w-full grid grid-cols-12 gap-x-[30px] gap-y-6">
-      <div className="col-span-8 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <div className="grid grid-cols-2 gap-x-[30px]">
-          <Skeleton className="rounded-[15px] min-h-[235px]" />
-          <Skeleton className="rounded-[15px] min-h-[235px]" />
+    <main className="grid h-full place-content-center">
+      <div className="flex justify-center items-center gap-4 flex-col">
+        <Loader
+          className="stroke-primary motion-safe:animate-spin-slow"
+          size={50}
+        />
+        <div className="text-center">
+          <h3 className="capitalize text-lg">Please be patient...</h3>
+          <span className="text-sm capitalize">We are getting your data</span>
         </div>
       </div>
-      <div className="grid gap-y-5 col-span-4">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="rounded-[15px] min-h-[235px]" />
-      </div>
-      <div className="col-span-8 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="rounded-[15px] min-h-[322px]" />
-      </div>
-      <div className="col-span-4 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="rounded-[15px] min-h-[322px]" />
-      </div>
-      <div className="col-span-5 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="rounded-[15px] min-h-[276px]" />
-      </div>
-      <div className="col-span-7 grid gap-y-5">
-        <Skeleton className="h-7 w-28" />
-        <Skeleton className="rounded-[15px] min-h-[276px]" />
-      </div>
-    </div>
+    </main>
   );
 };
 

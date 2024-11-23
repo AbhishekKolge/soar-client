@@ -16,7 +16,7 @@ const AppSidebar = () => {
   const location = useLocation();
   return (
     <Sidebar>
-      <SidebarHeader>
+      <SidebarHeader className="items-start pl-11 md:items-center md:pl-0">
         <Logo />
       </SidebarHeader>
       <SidebarContent>
@@ -35,7 +35,7 @@ const AppSidebar = () => {
 
                     <span
                       className={cn(
-                        "text-accent-secondary text-lg font-medium",
+                        "text-accent-secondary text-[14px] lg:text-[18px] font-medium",
                         isActive && "text-foreground"
                       )}
                     >

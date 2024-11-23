@@ -51,10 +51,15 @@ const renderCustomizedLabel = ({
       dominantBaseline="central"
       fontWeight="bold"
     >
-      <tspan x={centerX} fill="hsla(var(--background))">
+      <tspan x={centerX} fontSize={13} fill="hsla(var(--background))">
         {`${percentage.toFixed(2)}%`}
       </tspan>
-      <tspan x={centerX} dy="1.4em" fill="hsla(var(--background))">
+      <tspan
+        x={centerX}
+        dy="1.4em"
+        fontSize={11}
+        fill="hsla(var(--background))"
+      >
         {TRANSACTION_CATEGORY_FORMAT[category]}
       </tspan>
     </text>
@@ -65,10 +70,6 @@ const ExpenseStatistics = () => {
   const { data: expenseStatisticsData, isLoading: expenseStatisticsIsLoading } =
     useGetExpenseStatisticsQuery({});
 
-  if (expenseStatisticsIsLoading) {
-    return <Skeleton className="rounded-[15px] aspect-[1.09/1]" />;
-  }
-
   const chartData = expenseStatisticsData?.statistics?.map((data) => {
     return {
       ...data,
@@ -78,12 +79,14 @@ const ExpenseStatistics = () => {
   });
 
   return (
-    <Card>
-      <CardContent className="p-[30px] lg:p-[30px] aspect-[1.09/1] flex">
-        {chartData?.length ? (
+    <Card className="border-0">
+      <CardContent className="p-0 lg:p-[30px] xl:aspect-[350/322] flex">
+        {expenseStatisticsIsLoading ? (
+          <Skeleton className="w-full h-full min-h-[270px]" />
+        ) : chartData?.length ? (
           <ChartContainer
             config={chartConfig}
-            className="aspect-square mx-auto [&_.recharts-text]:fill-background"
+            className="mx-auto w-full max-w-[269px] lg:max-w-none aspect-square lg:aspect-auto min-h-[270px] [&_.recharts-text]:fill-background"
           >
             <PieChart>
               <Pie
@@ -109,7 +112,7 @@ const ExpenseStatistics = () => {
             </PieChart>
           </ChartContainer>
         ) : (
-          <EmptyChart />
+          <EmptyChart message="No expenses found" />
         )}
       </CardContent>
     </Card>

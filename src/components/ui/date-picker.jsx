@@ -26,7 +26,7 @@ export const DatePicker = (props) => {
           variant={"outline"}
           className={cn(
             "w-full text-xs lg:text-[15px]",
-            !value ? "text-muted-foreground" : "text-muted"
+            !value ? "text-muted-foreground" : "text-primary"
           )}
         >
           {value ? (

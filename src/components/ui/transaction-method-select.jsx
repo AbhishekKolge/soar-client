@@ -24,7 +24,7 @@ export const TransactionMethodSelect = (props) => {
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="justify-center border-dashed text-base lg:text-base"
+            className="justify-center border-dashed text-base text-[14px] lg:text-base"
           >
             Type
             {!!selected.length && (
@@ -32,7 +32,7 @@ export const TransactionMethodSelect = (props) => {
                 <Separator orientation="vertical" className="mx-2 h-8" />
                 <Badge
                   variant="secondary"
-                  className="rounded-sm px-2 text-base h-full font-medium"
+                  className="rounded-sm bg-white px-2 text-base h-full font-medium text-[14px] lg:text-base"
                 >
                   {`${selected.length} selected`}
                 </Badge>

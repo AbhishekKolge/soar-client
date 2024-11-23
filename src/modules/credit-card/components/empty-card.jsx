@@ -11,10 +11,10 @@ const EmptyCard = () => {
         alt="not found cover"
       />
       <div className="flex flex-col items-center gap-2">
-        <h1 className="font-medium text-2xl capitalize">
+        <h1 className="font-medium text-xl md:text-2xl capitalize">
           You are missing out 😩
         </h1>
-        <span className="text-primary">
+        <span className="text-primary text-[14px] md:text-[16px]">
           Add your credit card now to get started
         </span>
       </div>

@@ -79,7 +79,10 @@ const CreditCardList = () => {
     <>
       <Card className="w-full">
         <CardHeader className="lg:pb-[41px]">
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-end sm:justify-between">
+            <h3 className="text-primary text-[16px] lg:text-[22px] font-semibold hidden sm:block">
+              Manage your cards
+            </h3>
             <Button onClick={openAddCardHandler} variant="outline">
               <PlusCircledIcon className="!h-5 !w-5" />
               Add card
@@ -89,7 +92,7 @@ const CreditCardList = () => {
         <CardContent
           className={cn(
             (hasCards || creditCardIsLoading) &&
-              "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8 grid-flow-row-dense"
+              "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-8 grid-flow-row-dense"
           )}
         >
           {creditCardIsLoading ? (

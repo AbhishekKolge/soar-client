@@ -51,7 +51,7 @@ export const ContactInput = forwardRef((props, ref) => {
             aria-expanded={open}
             className={cn(
               "w-[120px] justify-between text-xs lg:text-[15px]",
-              !codeProps?.value ? "text-muted-foreground" : "text-muted"
+              !codeProps?.value ? "text-muted-foreground" : "text-primary"
             )}
           >
             {selectedCountry ? selectedCountry.phoneCode : "Code"}

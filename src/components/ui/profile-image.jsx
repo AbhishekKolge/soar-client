@@ -70,13 +70,16 @@ const ProfileImage = (props) => {
   };
 
   return (
-    <div className="w-[90px] h-[90px] relative" {...getRootProps({})}>
+    <div
+      className="w-[100px] h-[100px] md:w-[90px] md:h-[90px] relative"
+      {...getRootProps({})}
+    >
       {showMeData?.user?.profileImageUrl ? (
         <Button
           type="button"
           onClick={cancelHandler}
           variant="destructive"
-          className="rounded-full hover:bg-destructive absolute bottom-0 p-0 w-[30px] h-[30px] right-[-8px] z-10"
+          className="rounded-full hover:bg-destructive absolute bottom-0 p-0 w-[30px] h-[30px] right-[-5px] md:right-[-8px] z-10"
           size="icon"
         >
           <X color="#fff" />
@@ -85,7 +88,7 @@ const ProfileImage = (props) => {
         <Button
           type="button"
           variant="md"
-          className="rounded-full absolute bottom-0 p-0 w-[30px] h-[30px] right-[-8px] z-10"
+          className="rounded-full absolute bottom-0 p-0 w-[30px] h-[30px] right-[-5px] md:right-[-8px] z-10"
           size="icon"
         >
           <img src={ICON.icons.edit} className="w-[30px] h-[30px]" />

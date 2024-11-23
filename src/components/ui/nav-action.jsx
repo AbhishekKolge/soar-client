@@ -18,13 +18,13 @@ export const NavAction = (props) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="h-[60px] w-[60px] cursor-pointer">
+        <Avatar className="h-[35px] w-[35px] lg:w-[60px] lg:h-[60px] cursor-pointer">
           <AvatarImage
             className="object-cover"
             src={auth.profileImageUrl}
             alt={`@${auth.username}`}
           />
-          <AvatarFallback className="uppercase text-background bg-primary text-2xl">
+          <AvatarFallback className="uppercase text-background bg-primary lg:text-[22px]">
             {getInitials(auth.name)}
           </AvatarFallback>
         </Avatar>

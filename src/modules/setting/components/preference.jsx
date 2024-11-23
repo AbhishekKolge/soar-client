@@ -48,7 +48,7 @@ const PreferenceForm = () => {
   return (
     <form
       onSubmit={form.handleSubmit(onSubmit)}
-      className="flex flex-col gap-[41px]"
+      className="flex flex-col gap-[16px] md:gap-[41px]"
     >
       <div>
         <h3 className="mb-4 text-lg font-medium">Email Notifications</h3>
@@ -58,7 +58,7 @@ const PreferenceForm = () => {
               control={form.control}
               name="transactionAlert"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                <FormItem className="flex flex-row items-center gap-4 justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
                     <FormLabel className="text-base">
                       Transaction emails
@@ -85,7 +85,7 @@ const PreferenceForm = () => {
               control={form.control}
               name="loginAlert"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                <FormItem className="flex flex-row items-center gap-4 justify-between rounded-lg border p-4">
                   <div className="space-y-0.5">
                     <FormLabel className="text-base">
                       Login alert emails

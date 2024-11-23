@@ -5,6 +5,7 @@ import { logoutHandler } from "../../features/auth/auth-action";
 import Notification from "./notification";
 import Settings from "./settings";
 import Search from "./search";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 
 const Header = (props) => {
   const { children } = props;
@@ -16,16 +17,20 @@ const Header = (props) => {
   };
 
   return (
-    <header className="bg-background border-b border-border-secondary py-5 px-10 flex items-center justify-between">
-      <h2 className="text-primary text-[28px] font-semibold leading-9">
-        {children}
-      </h2>
-      <div className="flex items-center gap-[30px]">
-        <Search />
-        <Settings />
-        <Notification />
-        <NavAction auth={auth} onLogout={logoutAccountHandler} />
+    <header className="pb-[11px] pt-[25px] px-[25px] lg:pt-[20px] lg:pb-[20px] lg:px-[40px] flex flex-col gap-[25px] bg-white">
+      <div className="flex items-center justify-between">
+        <SidebarTrigger className="lg:hidden p-0" />
+        <h2 className="text-primary text-[20px] lg:text-[28px] font-semibold leading-9">
+          {children}
+        </h2>
+        <div className="flex items-center gap-[30px]">
+          <Search className="hidden lg:block" />
+          <Settings />
+          <Notification />
+          <NavAction auth={auth} onLogout={logoutAccountHandler} />
+        </div>
       </div>
+      <Search className="lg:hidden" />
     </header>
   );
 };

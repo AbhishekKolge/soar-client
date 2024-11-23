@@ -57,7 +57,7 @@ const SecurityForm = () => {
     <>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col gap-[41px]"
+        className="flex flex-col gap-[16px] md:gap-[41px]"
       >
         <div>
           <h3 className="mb-4 text-lg font-medium">Account Security</h3>
@@ -67,7 +67,7 @@ const SecurityForm = () => {
                 control={form.control}
                 name="twoFactorAuth"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                  <FormItem className="flex flex-row gap-4 items-center justify-between rounded-lg border p-4">
                     <div className="space-y-0.5">
                       <FormLabel className="text-base">
                         Enable 2FA (we will enable this soon)
@@ -91,7 +91,7 @@ const SecurityForm = () => {
 
               <div
                 onClick={openDeleteProfileHandler}
-                className="cursor-pointer flex flex-row items-center justify-between rounded-lg border border-destructive p-4"
+                className="cursor-pointer flex gap-4 flex-row items-center justify-between rounded-lg border border-destructive p-4"
               >
                 <div className="space-y-0.5">
                   <Label className="text-base text-destructive font-medium">

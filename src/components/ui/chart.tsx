@@ -283,8 +283,8 @@ const ChartLegendContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "flex items-center justify-end gap-4",
-          verticalAlign === "top" ? "pb-[30px]" : "pt-3",
+          "flex items-center justify-end gap-[28px]",
+          verticalAlign === "top" ? "pb-[12px] lg:pb-[30px]" : "pt-3",
           className
         )}
       >
@@ -296,14 +296,14 @@ const ChartLegendContent = React.forwardRef<
             <div
               key={item.value}
               className={cn(
-                "flex items-center text-muted text-[15px] gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
+                "flex items-center text-muted text-[12px] lg:text-[15px] gap-[10px] [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-muted-foreground"
               )}
             >
               {itemConfig?.icon && !hideIcon ? (
                 <itemConfig.icon />
               ) : (
                 <div
-                  className="h-[15px] w-[15px] shrink-0 rounded-full"
+                  className="h-[12px] w-[12px] sm:w-[15px] sm:h-[15px] shrink-0 rounded-full"
                   style={{
                     backgroundColor: item.color,
                   }}

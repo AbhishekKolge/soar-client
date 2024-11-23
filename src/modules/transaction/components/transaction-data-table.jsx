@@ -101,7 +101,7 @@ const TransactionDataTable = ({
                   <TableRow className="hover:bg-transparent" key={key}>
                     <TableCell
                       colSpan={columns.length}
-                      className="h-24 text-center text-sm p-2"
+                      className="h-[47px] text-center text-sm p-2"
                     >
                       <Skeleton className="h-full w-full" />
                     </TableCell>
