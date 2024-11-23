@@ -89,8 +89,12 @@ const LoginForm = () => {
       >
         <Card className="w-full md:w-[450px] border-none">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl lg:text-3xl">Login</CardTitle>
-            <CardDescription>Enter your login details below</CardDescription>
+            <CardTitle className="text-xl md:text-2xl lg:text-3xl">
+              Login
+            </CardTitle>
+            <CardDescription className="text-sm md:text-base">
+              Enter your login details below
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <Form {...form}>

@@ -73,10 +73,10 @@ const ForgotPasswordForm = () => {
       >
         <Card className="w-full md:w-[450px] border-none">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl lg:text-3xl">
+            <CardTitle className="text-xl md:text-2xl lg:text-3xl">
               Forgot your password?
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm md:text-base">
               Enter your email and we will send you a verification code
             </CardDescription>
           </CardHeader>

@@ -12,20 +12,20 @@ const Error = (props) => {
   return (
     <>
       <img
-        className="h-60"
+        className="h-40 md:h-60"
         src={ICON.illustration.notFound}
         alt="error cover"
       />
       <div className="flex flex-col items-center gap-2">
-        <h1 className="font-medium text-xl capitalize">
+        <h1 className="font-medium text-md md:text-xl max-w-[800px] text-center capitalize">
           {message || "something went wrong"}
         </h1>
-        <p className="text-secondary w-[400px] text-center">
+        <p className="text-muted text-sm md:text-base w-[400px] text-center">
           Brace yourself till we get the error fixed. You may also refresh the
           page or try again later
         </p>
       </div>
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col md:flex-row items-center gap-4">
         <Button variant="secondary" onClick={reloadPageHandler}>
           Reload page
         </Button>
