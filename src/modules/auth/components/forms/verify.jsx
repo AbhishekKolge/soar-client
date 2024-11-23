@@ -84,10 +84,10 @@ const VerifyForm = () => {
       >
         <Card className="w-full md:w-[450px] border-none">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl lg:text-3xl">
+            <CardTitle className="text-xl md:text-2xl lg:text-3xl">
               Verify Your Email
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm md:text-base">
               Enter your email and verification code
             </CardDescription>
           </CardHeader>

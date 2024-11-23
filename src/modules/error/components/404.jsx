@@ -6,13 +6,13 @@ const Error404 = () => {
   return (
     <>
       <img
-        className="h-60"
+        className="h-40 md:h-60"
         src={ICON.illustration.notFound}
         alt="not found cover"
       />
       <div className="flex flex-col items-center gap-2">
         <h1 className="font-medium text-xl capitalize">Page not found</h1>
-        <span className="text-primary">
+        <span className="text-primary text-center">
           The page you are looking for does not exist
         </span>
       </div>

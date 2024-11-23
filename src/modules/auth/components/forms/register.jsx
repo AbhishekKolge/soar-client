@@ -99,10 +99,10 @@ const RegisterForm = () => {
       >
         <Card className="w-full border-none">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl lg:text-3xl">
+            <CardTitle className="text-xl md:text-2xl lg:text-3xl">
               Create an account
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm md:text-base">
               Enter your details below to create your account
             </CardDescription>
           </CardHeader>
