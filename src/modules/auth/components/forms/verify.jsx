@@ -88,7 +88,10 @@ const VerifyForm = () => {
               Verify Your Email
             </CardTitle>
             <CardDescription className="text-sm md:text-base">
-              Enter your email and verification code
+              <div>Enter your email and verification code</div>
+              <div className="text-xs md:text-sm text-destructive">
+                Check spam emails too
+              </div>
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">

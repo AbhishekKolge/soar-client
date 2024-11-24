@@ -174,7 +174,7 @@ const AddAccount = (props) => {
                 name="bankId"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Identity</FormLabel>
+                    <FormLabel>Bank Name</FormLabel>
                     <FormControl>
                       <BankSelect
                         {...field}
