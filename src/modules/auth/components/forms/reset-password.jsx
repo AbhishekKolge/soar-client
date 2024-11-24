@@ -4,6 +4,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -85,6 +86,11 @@ const ResetPasswordForm = () => {
             <CardTitle className="text-xl md:text-2xl lg:text-3xl">
               Reset your password
             </CardTitle>
+            <CardDescription className="text-sm md:text-base">
+              <div className="text-xs md:text-sm text-destructive">
+                Check spam emails too
+              </div>
+            </CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <Form {...form}>
