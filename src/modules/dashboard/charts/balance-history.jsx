@@ -85,6 +85,7 @@ const BalanceHistory = () => {
                 stroke="var(--color-balance)"
                 strokeWidth={3}
                 dot={false}
+                activeDot={false}
               />
             </AreaChart>
           </ChartContainer>
