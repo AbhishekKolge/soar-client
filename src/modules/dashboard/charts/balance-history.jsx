@@ -79,7 +79,7 @@ const BalanceHistory = () => {
               </defs>
               <Area
                 dataKey="balance"
-                type="natural"
+                type="basis"
                 fill="url(#fillBalance)"
                 fillOpacity={0.4}
                 stroke="var(--color-balance)"
