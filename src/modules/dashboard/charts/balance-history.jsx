@@ -23,17 +23,19 @@ const BalanceHistory = () => {
 
   return (
     <Card className="border-0">
-      <CardContent className="px-[18px] lg:px-[25px] pb-[19px] lg:pb-[30px] pt-[4px] lg:pt-[30px] aspect-[325/223] lg:aspect-[635/276]">
+      <CardContent className="px-[18px] lg:px-[25px] pb-[19px] lg:pb-[30px] pt-[4px] lg:pt-[30px] lg:aspect-[635/276]">
         {balanceIsLoading ? (
-          <Skeleton className="rounded-[15px] lg:rounded-[25px] h-full w-full" />
+          <Skeleton className="rounded-[15px] lg:rounded-[25px] h-[223px] lg:h-full w-full" />
         ) : balanceData?.balance?.length ? (
-          <ChartContainer className="w-full h-full" config={chartConfig}>
+          <ChartContainer
+            className="w-full max-h-[223px] lg:max-h-none lg:h-full"
+            config={chartConfig}
+          >
             <AreaChart
               accessibilityLayer
               data={balanceData.balance}
               margin={{
                 left: -12,
-                right: -12,
               }}
             >
               <CartesianGrid stroke="#DFE5EE" strokeDasharray="3 3" />
