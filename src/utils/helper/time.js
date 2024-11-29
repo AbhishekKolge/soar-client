@@ -5,8 +5,6 @@ import tz from "dayjs/plugin/timezone";
 dayjs.extend(utc);
 dayjs.extend(tz);
 
-const localTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
 export const checkTimeIsExpired = (timeArg) => {
   const currentTime = Date.now();
   const time = new Date(timeArg).getTime() - +import.meta.env.VITE_TIME_BUFFER;
@@ -20,12 +18,12 @@ export const calculateRemainingTime = (timeArg) => {
   return remainingTime;
 };
 
-export const formatLocalTime = (time) => {
-  return dayjs(time).tz(localTimeZone).format("D MMMM YYYY, h:mm A");
+export const formatUtcTime = (time) => {
+  return dayjs(time).utc().format("D MMMM YYYY, h:mm A");
 };
 
-export const formatLocalDate = (time) => {
-  return dayjs(time).tz(localTimeZone).format("D MMMM YYYY");
+export const formatUtcDate = (time) => {
+  return dayjs(time).utc().format("D MMMM YYYY");
 };
 
 export const formatDateTimeInput = (time) => {
@@ -56,7 +54,6 @@ export const formatCardValidity = (time) => {
   const formattedDate = `${month}/${year}`;
   return formattedDate;
 };
-
 
 export const getShortDay = (time) => {
   return dayjs(time).format("ddd");
