@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import TransactionColumnHeader from "./transaction-column-header";
-import { formatCurrency, formatLocalTime } from "../../../utils/helper";
+import { formatCurrency, formatUtcTime } from "../../../utils/helper";
 import { truncate } from "lodash";
 import {
   Tooltip,
@@ -19,7 +19,7 @@ const transactionColumn = [
       return (
         <div className="flex space-y-2 flex-col">
           <span className="truncate font-medium">
-            {formatLocalTime(row.getValue("createdAt"))}
+            {formatUtcTime(row.getValue("createdAt"))}
           </span>
         </div>
       );

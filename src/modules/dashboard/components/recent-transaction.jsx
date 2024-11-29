@@ -2,14 +2,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useGetTransactionQuery } from "../../../features/transaction/transaction-api-slice";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ICON } from "../../../utils/constants";
-import { formatCurrency, formatLocalDate } from "../../../utils/helper";
+import { formatCurrency, formatUtcDate } from "../../../utils/helper";
 import { cn } from "@/lib/utils";
 import { EmptyChart } from "../charts";
 
 const RecentTransaction = () => {
   const { data: transactionData, isLoading: transactionIsLoading } =
     useGetTransactionQuery({});
-
 
   const transactions = transactionData?.results;
 
@@ -47,7 +46,7 @@ const RecentTransaction = () => {
                       {transaction.recipient}
                     </span>
                     <span className="text-muted text-[12px] lg:text-[15px]">
-                      {formatLocalDate(transaction.createdAt)}
+                      {formatUtcDate(transaction.createdAt)}
                     </span>
                   </div>
                   <span
