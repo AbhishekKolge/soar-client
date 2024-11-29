@@ -56,9 +56,9 @@ export const formatCardValidity = (time) => {
 };
 
 export const getShortDay = (time) => {
-  return dayjs(time).format("ddd");
+  return dayjs(time).utc().format("ddd");
 };
 
 export const getShortMonth = (time) => {
-  return dayjs(time).format("MMM");
+  return dayjs(time).utc().format("MMM");
 };
