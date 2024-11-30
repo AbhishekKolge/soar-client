@@ -18,7 +18,7 @@ const Header = (props) => {
 
   return (
     <header className="pb-[11px] pt-[25px] px-[25px] lg:pt-[20px] lg:pb-[20px] lg:px-[40px] bg-white">
-      <div className="max-w-screen-xl m-auto w-full h-full flex flex-col gap-[25px]">
+      <div className="max-w-screen-xl m-auto w-full h-full flex flex-col gap-[20px]">
         <div className="flex items-center justify-between">
           <SidebarTrigger className="lg:hidden p-0" />
           <h2 className="text-primary text-[20px] lg:text-[28px] font-semibold leading-9">
