@@ -14,7 +14,9 @@ const PrimaryLayout = () => {
       <main className="w-full bg:white lg:bg-secondary flex flex-col">
         <Header>{title}</Header>
         <section className="pt-[11px] flex-1 pb-[21px] px-[25px] bg-white lg:bg-secondary lg:px-[40px] lg:py-[24px]">
-          <Outlet />
+          <div className="max-w-screen-xl m-auto w-full h-full">
+            <Outlet />
+          </div>
         </section>
       </main>
     </SidebarProvider>
